@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Teacher Ivan | BFC Games Prep</title>
-    <!-- Importando fuentes impactantes tipo póster deportivo -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Teacher Ivan | Lifestyle & Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Paleta BFC Games (Turquesa oscuro, Naranja brillante, Blanco) */
-            --bg-dark: #071a15;
-            --bg-gradient: radial-gradient(circle at top right, #0d382b, #05100d);
-            --bfc-orange: #ff3b00;
-            --bfc-green-glow: #2cb67d;
-            --text-main: #ffffff;
-            --text-muted: #8da19b;
-            --card-bg: rgba(13, 35, 28, 0.6);
-            --border-color: rgba(255, 59, 0, 0.3);
+            /* Nuevo esquema de colores Premium Dark */
+            --bg-base: #0f1115;
+            --bg-surface: #1a1d24;
+            --bg-surface-elevated: #232730;
+            --accent-primary: #6366f1; /* Indigo vibrante */
+            --accent-secondary: #10b981; /* Esmeralda para confirmaciones/salud */
+            --accent-warning: #f59e0b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-color: rgba(255,255,255,0.05);
             
-            --font-title: 'Oswald', sans-serif;
-            --font-body: 'Rajdhani', sans-serif;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
         }
 
         * {
@@ -32,408 +34,434 @@
         }
 
         body {
-            font-family: var(--font-body);
-            background: var(--bg-dark);
-            background-image: var(--bg-gradient);
-            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 15px;
-            overflow-x: hidden;
         }
 
-        /* Textura de fondo sutil inspirada en el póster */
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10h80v80h-80z" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></svg>');
-            background-size: 30px 30px;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .container {
+        .app-container {
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
+            padding: 20px 16px;
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 24px;
         }
 
-        /* HEADER & BRANDING */
-        header {
-            text-align: center;
-            margin-bottom: 10px;
-            position: relative;
+        /* HEADER */
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
         }
 
         .brand-subtitle {
-            font-size: 14px;
-            letter-spacing: 3px;
-            color: var(--bfc-green-glow);
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .main-title {
-            font-family: var(--font-title);
-            font-size: 48px;
-            color: var(--bfc-orange);
-            line-height: 1;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(255, 59, 0, 0.4);
-            margin-top: 5px;
-        }
-
-        /* COUNTDOWN SECTION */
-        .countdown-wrapper {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .countdown-wrapper::before {
-            content: ">> PERFORMANCE CAP: HIGH_OUTPUT";
-            position: absolute;
-            bottom: 5px;
-            right: 10px;
-            font-size: 8px;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-        }
-
-        .countdown-label {
-            font-size: 16px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .time-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .time-value {
-            font-family: var(--font-title);
-            font-size: 42px;
-            color: var(--text-main);
-            line-height: 1;
-        }
-
-        .time-text {
             font-size: 12px;
-            color: var(--bfc-orange);
-            text-transform: uppercase;
+            color: var(--accent-primary);
             font-weight: 700;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* INJURY WARNING */
-        .injury-banner {
-            background: rgba(255, 59, 0, 0.1);
-            border-left: 4px solid var(--bfc-orange);
-            padding: 10px 15px;
-            font-size: 14px;
-            color: #ffbba6;
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), #8b5cf6);
             display: flex;
             align-items: center;
-            gap: 10px;
-            border-radius: 4px;
-        }
-
-        /* TODAY'S WORKOUT SECTION */
-        .workout-section {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 5px;
-        }
-
-        .section-header h2 {
-            font-family: var(--font-title);
-            font-size: 24px;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .current-date {
-            color: var(--bfc-green-glow);
+            justify-content: center;
             font-weight: 700;
             font-size: 14px;
-            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
         }
 
-        .session-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 15px;
-            border-top: 3px solid var(--bfc-orange);
+        /* DAY SELECTOR */
+        .day-selector-wrapper {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            /* Ocultar scrollbar */
+            scrollbar-width: none; 
+        }
+        .day-selector-wrapper::-webkit-scrollbar { display: none; }
+
+        .day-selector {
+            display: flex;
+            gap: 10px;
+            min-width: max-content;
         }
 
-        .session-title {
-            font-family: var(--font-title);
-            font-size: 20px;
-            color: var(--bfc-orange);
-            margin-bottom: 15px;
+        .day-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .day-btn.active {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+        }
+
+        /* WORKOUT FEED */
+        .workout-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .session-header {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 8px;
+            margin-bottom: 12px;
+            padding-left: 4px;
         }
 
-        .movement-block {
-            margin-bottom: 18px;
-            padding-left: 12px;
-            border-left: 2px solid rgba(255, 255, 255, 0.2);
+        .session-header i {
+            color: var(--accent-warning);
         }
 
-        .movement-block:last-child {
-            margin-bottom: 0;
+        .block-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .movement-name {
+        /* Etiqueta superior del bloque */
+        .block-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
             font-weight: 700;
-            font-size: 17px;
-            color: var(--text-main);
-            margin-bottom: 4px;
         }
 
-        .movement-desc {
-            font-size: 15px;
+        .block-time {
+            color: var(--accent-primary);
+            background: rgba(99, 102, 241, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .block-phase {
             color: var(--text-muted);
-            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* ESTILOS PARA LA SECCIÓN DE NOTAS */
-        .movement-note {
-            margin-top: 8px;
-            font-size: 13px;
-            color: #ffbba6;
-            font-style: italic;
-            background: rgba(255, 59, 0, 0.08);
-            padding: 8px 10px;
-            border-left: 2px solid var(--bfc-orange);
-            border-radius: 0 4px 4px 0;
+        /* Contenido del bloque */
+        .block-desc {
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Secciones de detalles profesionales */
+        .pro-details {
+            background: var(--bg-surface-elevated);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .detail-row {
             display: flex;
             align-items: flex-start;
             gap: 8px;
-            line-height: 1.3;
+            font-size: 13px;
+            line-height: 1.4;
         }
 
-        .movement-note i {
+        .detail-icon {
+            color: var(--text-muted);
             margin-top: 2px;
             font-size: 12px;
-            color: var(--bfc-orange);
         }
 
-        .loading-state, .error-state {
+        .detail-text { color: var(--text-secondary); }
+        .detail-label { font-weight: 700; color: var(--text-primary); margin-right: 4px;}
+
+        /* Input de Resultados */
+        .result-box {
+            margin-top: 6px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .result-input {
+            flex: 1;
+            background: var(--bg-base);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .result-input:focus {
+            border-color: var(--accent-primary);
+        }
+
+        /* Estados de carga */
+        .status-msg {
             text-align: center;
-            padding: 30px;
+            padding: 40px 20px;
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
-
-        .error-state { color: var(--bfc-orange); }
-
-        /* Loader Animation */
-        .fa-spinner { animation: spin 1s linear infinite; }
+        .status-msg i { font-size: 24px; color: var(--accent-primary); }
+        .spin { animation: spin 1s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="app-container">
         
-        <!-- HEADER -->
-        <header>
-            <div class="brand-subtitle">Teacher Ivan - Lifestyle</div>
-            <h1 class="main-title">ADVANCED</h1>
+        <header class="app-header">
+            <div class="brand-info">
+                <span class="brand-title">Teacher Ivan</span>
+                <span class="brand-subtitle">Lifestyle App</span>
+            </div>
+            <div class="user-avatar">IM</div>
         </header>
 
-        <!-- COUNTDOWN BFC GAMES -->
-        <div class="countdown-wrapper">
-            <span class="countdown-label">BFC Games 2026 Starts In</span>
-            <div class="countdown-timer" id="countdown">
-                <div class="time-box"><span class="time-value" id="days">00</span><span class="time-text">Días</span></div>
-                <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-text">Hrs</span></div>
-                <div class="time-box"><span class="time-value" id="mins">00</span><span class="time-text">Min</span></div>
-            </div>
-        </div>
-
-        <!-- NOTA DE LESIÓN -->
-        <div class="injury-banner">
-            <i class="fas fa-triangle-exclamation"></i>
-            <span><strong>Protocolo Tendón:</strong> Isométricos obligatorios antes de iniciar sesión. Control en los descensos.</span>
-        </div>
-
-        <!-- WOD DEL DÍA -->
-        <div class="workout-section">
-            <div class="section-header">
-                <h2>Programa de Hoy</h2>
-                <span class="current-date" id="display-date">CARGANDO...</span>
-            </div>
-
-            <!-- Contenedor dinámico donde se inyectarán las sesiones -->
-            <div id="workout-container">
-                <div class="loading-state">
-                    <i class="fas fa-spinner"></i> Obteniendo datos de Google Sheets...
+        <div class="day-selector-wrapper">
+            <div class="day-selector" id="day-selector">
                 </div>
+        </div>
+
+        <div class="workout-feed" id="workout-feed">
+            <div class="status-msg">
+                <i class="fas fa-circle-notch spin"></i>
+                <span>Sincronizando con base de datos...</span>
             </div>
         </div>
 
     </div>
 
     <script>
-        // URL DE TU GOOGLE APPS SCRIPT
+        // URL DE APPS SCRIPT
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbzJW7QFzW2BEJOPPgBtNTQZmoLpKheJ9MpDJniCpADrl3vVzVEQHoNmVAEZnvtK3Mm3/exec';
+        
+        let globalWorkoutData = [];
+        const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+        let currentSelectedDay = daysOfWeek[new Date().getDay()]; // Día actual por defecto
 
-        // 1. LÓGICA DEL COUNTDOWN (Objetivo: 16 Mayo 2026)
-        function initCountdown() {
-            const targetDate = new Date('May 16, 2026 00:00:00').getTime();
-
-            const updateTimer = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) {
-                    clearInterval(updateTimer);
-                    document.getElementById('countdown').innerHTML = '<span class="time-value" style="color: var(--bfc-green-glow)">¡IT\'S GAME DAY!</span>';
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-                document.getElementById('mins').innerText = mins < 10 ? '0' + mins : mins;
-            }, 1000);
+        // 1. INICIALIZAR LA UI
+        function initApp() {
+            renderDaySelector();
+            fetchWorkoutData();
         }
 
-        // 2. LÓGICA DE EXTRACCIÓN Y RENDERIZADO DEL WOD
-        const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-        const today = new Date();
-        const currentDayName = daysOfWeek[today.getDay()];
-        
-        // Mostrar fecha actual en UI
-        const options = { weekday: 'long', month: 'short', day: 'numeric' };
-        document.getElementById('display-date').innerText = today.toLocaleDateString('es-ES', options);
+        // 2. RENDERIZAR SELECTOR DE DÍAS
+        function renderDaySelector() {
+            const selectorContainer = document.getElementById('day-selector');
+            selectorContainer.innerHTML = '';
 
-        async function fetchWorkout() {
+            // Reordenar para que empiece en Lunes
+            const orderedDays = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+            orderedDays.forEach(day => {
+                const btn = document.createElement('button');
+                btn.className = `day-btn ${day === currentSelectedDay ? 'active' : ''}`;
+                btn.innerText = day.substring(0, 3).toUpperCase(); // Mostrar "LUN", "MAR", etc.
+                btn.onclick = () => {
+                    currentSelectedDay = day;
+                    updateActiveDayBtn();
+                    renderWorkoutFeed();
+                };
+                selectorContainer.appendChild(btn);
+            });
+            
+            // Auto-scroll al día seleccionado
+            const activeBtn = document.querySelector('.day-btn.active');
+            if(activeBtn) {
+                activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        }
+
+        function updateActiveDayBtn() {
+            document.querySelectorAll('.day-btn').forEach(btn => {
+                if (btn.innerText === currentSelectedDay.substring(0, 3).toUpperCase()) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // 3. OBTENER DATOS
+        async function fetchWorkoutData() {
             try {
                 const response = await fetch(GAS_URL);
-                if (!response.ok) throw new Error('Error en la red');
-                
-                const data = await response.json();
-                renderWorkout(data);
+                if (!response.ok) throw new Error('Error de conexión');
+                globalWorkoutData = await response.json();
+                renderWorkoutFeed();
             } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('workout-container').innerHTML = `
-                    <div class="error-state">
-                        <i class="fas fa-exclamation-circle"></i> No se pudo cargar el entrenamiento. Revisa tu conexión o el enlace de Apps Script.
+                console.error(error);
+                document.getElementById('workout-feed').innerHTML = `
+                    <div class="status-msg" style="color: var(--accent-warning);">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>No se pudo sincronizar la programación.</span>
                     </div>`;
             }
         }
 
-        function renderWorkout(rows) {
-            const container = document.getElementById('workout-container');
-            container.innerHTML = ''; // Limpiar loader
+        // 4. RENDERIZAR EL FEED DE ENTRENAMIENTO
+        function renderWorkoutFeed() {
+            const feed = document.getElementById('workout-feed');
+            feed.innerHTML = ''; // Limpiar
 
-            // Filtrar las filas que corresponden al día actual (ignorando mayúsculas/minúsculas)
-            const todayWorkout = rows.filter(row => {
+            // Filtrar los datos por el día seleccionado
+            const dayData = globalWorkoutData.filter(row => {
                 const sheetDay = row[0] ? String(row[0]).trim().toLowerCase() : '';
-                return sheetDay === currentDayName.toLowerCase();
+                return sheetDay === currentSelectedDay.toLowerCase();
             });
 
-            if (todayWorkout.length === 0) {
-                container.innerHTML = `<div class="loading-state">Día de descanso activo o no hay rutina programada para hoy (${currentDayName}).</div>`;
+            if (dayData.length === 0) {
+                feed.innerHTML = `
+                    <div class="status-msg">
+                        <i class="fas fa-bed" style="color: var(--text-muted);"></i>
+                        <span>Día de recuperación o sin programación asignada.</span>
+                    </div>`;
                 return;
             }
 
-            // Separar en Mañana y Tarde
-            let morningBlocks = [];
-            let afternoonBlocks = [];
+            // Separar sesiones
+            const morningBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('mañana'));
+            const afternoonBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('tarde'));
 
-            todayWorkout.forEach(row => {
-                // row: [Día, Sesión, Horario, Bloque, Descripción, Notas]
-                const session = row[1] ? String(row[1]).toLowerCase() : '';
-                const blockData = {
-                    time: row[2] || '',
-                    name: row[3] || 'Bloque',
-                    desc: row[4] || '',
-                    note: row[5] || '' // EXTRACCIÓN DE LA NOTA
-                };
-
-                if (session.includes('mañana') || session.includes('morning')) {
-                    morningBlocks.push(blockData);
-                } else if (session.includes('tarde') || session.includes('afternoon')) {
-                    afternoonBlocks.push(blockData);
-                }
-            });
-
-            // Función auxiliar para generar el HTML de una sesión
-            const createSessionHTML = (title, icon, blocks, timeStr) => {
-                if (blocks.length === 0) return '';
-                
-                let blocksHTML = blocks.map(b => {
-                    // Si existe una nota, generamos el HTML, si no, se queda vacío
-                    const noteHTML = b.note ? `<div class="movement-note"><i class="fas fa-info-circle"></i> ${b.note}</div>` : '';
-                    
-                    return `
-                    <div class="movement-block">
-                        <div class="movement-name">${b.name}</div>
-                        <div class="movement-desc">${b.desc}</div>
-                        ${noteHTML}
-                    </div>
-                    `;
-                }).join('');
-
-                return `
-                    <div class="session-card">
-                        <div class="session-title"><i class="${icon}"></i> ${title} <span style="font-size:12px; color:var(--text-muted); margin-left:auto; font-family:var(--font-body)">${timeStr}</span></div>
-                        ${blocksHTML}
-                    </div>
-                `;
-            };
-
-            // Inyectar en el DOM
-            const morningHTML = createSessionHTML('Early Session', 'fas fa-sun', morningBlocks, '05:30 - 06:00');
-            const afternoonHTML = createSessionHTML('Performance', 'fas fa-bolt', afternoonBlocks, '14:30 - 16:00');
-
-            container.innerHTML = morningHTML + afternoonHTML;
+            if (morningBlocks.length > 0) feed.appendChild(createSessionDOM('Early Session', 'fas fa-sun', morningBlocks));
+            if (afternoonBlocks.length > 0) feed.appendChild(createSessionDOM('Performance Box', 'fas fa-dumbbell', afternoonBlocks));
         }
 
-        // 3. INICIALIZAR APP
-        initCountdown();
-        fetchWorkout();
+        // 5. CONSTRUCTOR DE COMPONENTES DOM
+        function createSessionDOM(title, iconClass, blocks) {
+            const sessionDiv = document.createElement('div');
+            
+            // Header de la sesión
+            const header = document.createElement('div');
+            header.className = 'session-header';
+            header.innerHTML = `<i class="${iconClass}"></i> ${title}`;
+            sessionDiv.appendChild(header);
+
+            // Bloques
+            blocks.forEach(row => {
+                // Mapeo según el nuevo CSV:
+                // 0:Día, 1:Sesión, 2:Horario, 3:Fase, 4:Descripción, 5:Notas_Biomecánicas, 6:Logica, 7:Resultados
+                const horario = row[2] || '--:--';
+                const fase = row[3] || 'Bloque';
+                const descripcion = row[4] || '';
+                const notas = row[5] || '';
+                const logica = row[6] || '';
+                const requiereResultado = row[7] ? row[7].trim() !== '' : false;
+                const placeholderResultado = row[7] || 'Anotar resultado...';
+
+                const blockCard = document.createElement('div');
+                blockCard.className = 'block-card';
+
+                let proDetailsHTML = '';
+                if (notas || logica) {
+                    proDetailsHTML = `<div class="pro-details">`;
+                    if (notas) {
+                        proDetailsHTML += `
+                            <div class="detail-row">
+                                <i class="fas fa-microscope detail-icon"></i>
+                                <div class="detail-text"><span class="detail-label">Biomecánica:</span>${notas}</div>
+                            </div>`;
+                    }
+                    if (logica) {
+                        proDetailsHTML += `
+                            <div class="detail-row">
+                                <i class="fas fa-bullseye detail-icon" style="color: var(--accent-primary);"></i>
+                                <div class="detail-text"><span class="detail-label">Objetivo:</span>${logica}</div>
+                            </div>`;
+                    }
+                    proDetailsHTML += `</div>`;
+                }
+
+                let resultHTML = '';
+                if (requiereResultado) {
+                    resultHTML = `
+                        <div class="result-box">
+                            <i class="fas fa-pen detail-icon"></i>
+                            <input type="text" class="result-input" placeholder="${placeholderResultado}">
+                        </div>`;
+                }
+
+                blockCard.innerHTML = `
+                    <div class="block-meta">
+                        <div class="block-time"><i class="far fa-clock"></i> ${horario}</div>
+                        <div class="block-phase">${fase}</div>
+                    </div>
+                    <div class="block-desc">${descripcion}</div>
+                    ${proDetailsHTML}
+                    ${resultHTML}
+                `;
+
+                sessionDiv.appendChild(blockCard);
+            });
+
+            return sessionDiv;
+        }
+
+        // Arrancar la app
+        window.onload = initApp;
 
     </script>
 </body>
