@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Teacher Ivan | Lifestyle & Performance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <title>Teacher Ivan | Training App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Nuevo esquema de colores Premium Dark */
-            --bg-base: #0f1115;
-            --bg-surface: #1a1d24;
-            --bg-surface-elevated: #232730;
-            --accent-primary: #6366f1; /* Indigo vibrante */
-            --accent-secondary: #10b981; /* Esmeralda para confirmaciones/salud */
-            --accent-warning: #f59e0b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --border-color: rgba(255,255,255,0.05);
+            /* Paleta UI Moderna (Inspirada en el diseño adjunto) */
+            --bg-body: #F0F2F5; /* Fondo claro y limpio */
+            --bg-card: #FFFFFF;
+            --primary-color: #000000;
+            --accent-color: #E2FF31; /* Verde neón vibrante */
+            --accent-secondary: #7000FF; /* Púrpura profundo */
+            --text-main: #111111;
+            --text-muted: #888888;
+            --border-light: #EAEAEC;
             
-            --radius-lg: 16px;
-            --radius-md: 12px;
-            --radius-sm: 8px;
+            --radius-pill: 50px;
+            --radius-card: 28px;
+            --radius-sm: 14px;
+            
+            --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.04);
+            --shadow-float: 0 20px 40px rgba(112, 0, 255, 0.15);
         }
 
         * {
@@ -34,292 +35,308 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-base);
-            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .app-container {
+        .app-wrapper {
             width: 100%;
             max-width: 480px;
-            padding: 20px 16px;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* HEADER */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .greeting {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .greeting-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .greeting-main {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1.1;
+        }
+
+        .profile-pic {
+            width: 52px;
+            height: 52px;
+            border-radius: 20px;
+            background: var(--primary-color);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* SELECTOR DE DÍAS (Pills flotantes) */
+        .calendar-scroller {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scrollbar-width: none; 
+        }
+        .calendar-scroller::-webkit-scrollbar { display: none; }
+
+        .days-container {
+            display: flex;
+            gap: 12px;
+            min-width: max-content;
+        }
+
+        .day-pill {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            border: 2px solid transparent;
+            padding: 12px 20px;
+            border-radius: var(--radius-pill);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .day-pill.active {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* FEED DE ENTRENAMIENTO */
+        .workout-section {
             display: flex;
             flex-direction: column;
             gap: 24px;
         }
 
-        /* HEADER */
-        .app-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .brand-info {
+        .session-group {
             display: flex;
             flex-direction: column;
+            gap: 16px;
         }
 
-        .brand-title {
+        .session-title {
             font-size: 20px;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
-        }
-
-        .brand-subtitle {
-            font-size: 12px;
-            color: var(--accent-primary);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-primary), #8b5cf6);
+            font-weight: 800;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-        }
-
-        /* DAY SELECTOR */
-        .day-selector-wrapper {
-            position: relative;
-            width: 100%;
-            overflow-x: auto;
-            padding-bottom: 8px;
-            /* Ocultar scrollbar */
-            scrollbar-width: none; 
-        }
-        .day-selector-wrapper::-webkit-scrollbar { display: none; }
-
-        .day-selector {
-            display: flex;
             gap: 10px;
-            min-width: max-content;
+            margin-bottom: 4px;
+            color: var(--primary-color);
         }
 
-        .day-btn {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            padding: 10px 16px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .session-title i {
+            color: var(--accent-secondary);
+            font-size: 22px;
         }
 
-        .day-btn.active {
-            background: var(--accent-primary);
-            color: white;
-            border-color: var(--accent-primary);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
-        }
-
-        /* WORKOUT FEED */
-        .workout-feed {
+        /* TARJETAS DE BLOQUES */
+        .task-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 24px;
+            box-shadow: var(--shadow-soft);
             display: flex;
             flex-direction: column;
-            gap: 20px;
-        }
-
-        .session-header {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
-            padding-left: 4px;
-        }
-
-        .session-header i {
-            color: var(--accent-warning);
-        }
-
-        .block-card {
-            background: var(--bg-surface);
-            border-radius: var(--radius-lg);
-            padding: 18px;
-            border: 1px solid var(--border-color);
+            gap: 16px;
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
         }
 
-        /* Etiqueta superior del bloque */
-        .block-meta {
+        /* Pequeño acento decorativo en la tarjeta */
+        .task-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--accent-secondary);
+            border-radius: 6px 0 0 6px;
+        }
+
+        .task-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
+        }
+
+        .task-tag {
+            background: rgba(112, 0, 255, 0.08);
+            color: var(--accent-secondary);
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 13px;
             font-weight: 700;
-        }
-
-        .block-time {
-            color: var(--accent-primary);
-            background: rgba(99, 102, 241, 0.1);
-            padding: 4px 10px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .block-phase {
-            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        /* Contenido del bloque */
-        .block-desc {
-            font-size: 16px;
-            line-height: 1.5;
-            font-weight: 500;
-            color: var(--text-primary);
+        .task-time {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        /* Secciones de detalles profesionales */
-        .pro-details {
-            background: var(--bg-surface-elevated);
+        .task-content {
+            font-size: 17px;
+            line-height: 1.6;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /* Detalles técnicos (Biomecánica/Objetivo) */
+        .tech-details {
+            background: var(--bg-body);
             border-radius: var(--radius-sm);
-            padding: 12px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 4px;
+            gap: 12px;
         }
 
-        .detail-row {
+        .detail-item {
             display: flex;
             align-items: flex-start;
-            gap: 8px;
-            font-size: 13px;
+            gap: 12px;
+            font-size: 14px;
             line-height: 1.4;
         }
 
-        .detail-icon {
-            color: var(--text-muted);
-            margin-top: 2px;
-            font-size: 12px;
+        .detail-item i {
+            color: var(--primary-color);
+            margin-top: 3px;
+            font-size: 14px;
         }
 
-        .detail-text { color: var(--text-secondary); }
-        .detail-label { font-weight: 700; color: var(--text-primary); margin-right: 4px;}
+        .detail-item span { color: var(--text-muted); }
+        .detail-item strong { color: var(--text-main); font-weight: 700; }
 
         /* Input de Resultados */
-        .result-box {
-            margin-top: 6px;
-            border-top: 1px dashed var(--border-color);
-            padding-top: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .result-container {
+            margin-top: 4px;
         }
 
         .result-input {
-            flex: 1;
-            background: var(--bg-base);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 10px 12px;
+            width: 100%;
+            background: var(--bg-body);
+            border: 2px solid transparent;
+            color: var(--primary-color);
+            padding: 14px 18px;
             border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: 14px;
-            outline: none;
-        }
-
-        .result-input:focus {
-            border-color: var(--accent-primary);
-        }
-
-        /* Estados de carga */
-        .status-msg {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
             font-size: 15px;
+            font-weight: 500;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .result-input::placeholder { color: var(--text-muted); }
+        .result-input:focus { border-color: var(--accent-secondary); background: var(--bg-card); }
+
+        /* Estado de carga */
+        .loading-screen {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            padding: 60px 20px;
+            gap: 16px;
+            color: var(--text-muted);
         }
-        .status-msg i { font-size: 24px; color: var(--accent-primary); }
-        .spin { animation: spin 1s linear infinite; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-light);
+            border-top: 4px solid var(--accent-secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
     </style>
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="app-wrapper">
         
-        <header class="app-header">
-            <div class="brand-info">
-                <span class="brand-title">Teacher Ivan</span>
-                <span class="brand-subtitle">Lifestyle App</span>
+        <header class="top-bar">
+            <div class="greeting">
+                <span class="greeting-sub">BFC Games 2026</span>
+                <span class="greeting-main">Teacher Ivan</span>
             </div>
-            <div class="user-avatar">IM</div>
+            <div class="profile-pic">IM</div>
         </header>
 
-        <div class="day-selector-wrapper">
-            <div class="day-selector" id="day-selector">
+        <div class="calendar-scroller">
+            <div class="days-container" id="day-selector">
                 </div>
         </div>
 
-        <div class="workout-feed" id="workout-feed">
-            <div class="status-msg">
-                <i class="fas fa-circle-notch spin"></i>
-                <span>Sincronizando con base de datos...</span>
+        <div class="workout-section" id="workout-feed">
+            <div class="loading-screen">
+                <div class="spinner"></div>
+                <span style="font-weight: 500;">Sincronizando WOD...</span>
             </div>
         </div>
 
     </div>
 
     <script>
-        // URL DE APPS SCRIPT
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbzJW7QFzW2BEJOPPgBtNTQZmoLpKheJ9MpDJniCpADrl3vVzVEQHoNmVAEZnvtK3Mm3/exec';
         
         let globalWorkoutData = [];
         const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-        let currentSelectedDay = daysOfWeek[new Date().getDay()]; // Día actual por defecto
+        let currentSelectedDay = daysOfWeek[new Date().getDay()];
 
-        // 1. INICIALIZAR LA UI
         function initApp() {
             renderDaySelector();
             fetchWorkoutData();
         }
 
-        // 2. RENDERIZAR SELECTOR DE DÍAS
         function renderDaySelector() {
             const selectorContainer = document.getElementById('day-selector');
             selectorContainer.innerHTML = '';
-
-            // Reordenar para que empiece en Lunes
             const orderedDays = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
             orderedDays.forEach(day => {
                 const btn = document.createElement('button');
-                btn.className = `day-btn ${day === currentSelectedDay ? 'active' : ''}`;
-                btn.innerText = day.substring(0, 3).toUpperCase(); // Mostrar "LUN", "MAR", etc.
+                btn.className = `day-pill ${day === currentSelectedDay ? 'active' : ''}`;
+                btn.innerText = day; 
                 btn.onclick = () => {
                     currentSelectedDay = day;
                     updateActiveDayBtn();
@@ -328,16 +345,13 @@
                 selectorContainer.appendChild(btn);
             });
             
-            // Auto-scroll al día seleccionado
-            const activeBtn = document.querySelector('.day-btn.active');
-            if(activeBtn) {
-                activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
+            const activeBtn = document.querySelector('.day-pill.active');
+            if(activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
 
         function updateActiveDayBtn() {
-            document.querySelectorAll('.day-btn').forEach(btn => {
-                if (btn.innerText === currentSelectedDay.substring(0, 3).toUpperCase()) {
+            document.querySelectorAll('.day-pill').forEach(btn => {
+                if (btn.innerText === currentSelectedDay) {
                     btn.classList.add('active');
                 } else {
                     btn.classList.remove('active');
@@ -345,29 +359,25 @@
             });
         }
 
-        // 3. OBTENER DATOS
         async function fetchWorkoutData() {
             try {
                 const response = await fetch(GAS_URL);
-                if (!response.ok) throw new Error('Error de conexión');
+                if (!response.ok) throw new Error('Error');
                 globalWorkoutData = await response.json();
                 renderWorkoutFeed();
             } catch (error) {
-                console.error(error);
                 document.getElementById('workout-feed').innerHTML = `
-                    <div class="status-msg" style="color: var(--accent-warning);">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <span>No se pudo sincronizar la programación.</span>
+                    <div class="loading-screen" style="color: var(--primary-color);">
+                        <i class="fas fa-triangle-exclamation" style="font-size: 30px;"></i>
+                        <span>Error al cargar los datos de Sheets.</span>
                     </div>`;
             }
         }
 
-        // 4. RENDERIZAR EL FEED DE ENTRENAMIENTO
         function renderWorkoutFeed() {
             const feed = document.getElementById('workout-feed');
-            feed.innerHTML = ''; // Limpiar
+            feed.innerHTML = ''; 
 
-            // Filtrar los datos por el día seleccionado
             const dayData = globalWorkoutData.filter(row => {
                 const sheetDay = row[0] ? String(row[0]).trim().toLowerCase() : '';
                 return sheetDay === currentSelectedDay.toLowerCase();
@@ -375,92 +385,85 @@
 
             if (dayData.length === 0) {
                 feed.innerHTML = `
-                    <div class="status-msg">
-                        <i class="fas fa-bed" style="color: var(--text-muted);"></i>
-                        <span>Día de recuperación o sin programación asignada.</span>
+                    <div class="loading-screen">
+                        <i class="fas fa-mug-hot" style="font-size: 32px; color: var(--text-muted);"></i>
+                        <span>Día de descanso programado.</span>
                     </div>`;
                 return;
             }
 
-            // Separar sesiones
             const morningBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('mañana'));
             const afternoonBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('tarde'));
 
-            if (morningBlocks.length > 0) feed.appendChild(createSessionDOM('Early Session', 'fas fa-sun', morningBlocks));
-            if (afternoonBlocks.length > 0) feed.appendChild(createSessionDOM('Performance Box', 'fas fa-dumbbell', afternoonBlocks));
+            if (morningBlocks.length > 0) feed.appendChild(createSessionDOM('Morning Flow', 'fas fa-droplet', morningBlocks));
+            if (afternoonBlocks.length > 0) feed.appendChild(createSessionDOM('Performance WOD', 'fas fa-bolt', afternoonBlocks));
         }
 
-        // 5. CONSTRUCTOR DE COMPONENTES DOM
         function createSessionDOM(title, iconClass, blocks) {
-            const sessionDiv = document.createElement('div');
+            const sessionGroup = document.createElement('div');
+            sessionGroup.className = 'session-group';
             
-            // Header de la sesión
             const header = document.createElement('div');
-            header.className = 'session-header';
+            header.className = 'session-title';
             header.innerHTML = `<i class="${iconClass}"></i> ${title}`;
-            sessionDiv.appendChild(header);
+            sessionGroup.appendChild(header);
 
-            // Bloques
             blocks.forEach(row => {
-                // Mapeo según el nuevo CSV:
-                // 0:Día, 1:Sesión, 2:Horario, 3:Fase, 4:Descripción, 5:Notas_Biomecánicas, 6:Logica, 7:Resultados
                 const horario = row[2] || '--:--';
                 const fase = row[3] || 'Bloque';
                 const descripcion = row[4] || '';
                 const notas = row[5] || '';
                 const logica = row[6] || '';
                 const requiereResultado = row[7] ? row[7].trim() !== '' : false;
-                const placeholderResultado = row[7] || 'Anotar resultado...';
+                const placeholderResultado = row[7] || 'Escribe tu resultado...';
 
-                const blockCard = document.createElement('div');
-                blockCard.className = 'block-card';
+                const card = document.createElement('div');
+                card.className = 'task-card';
 
-                let proDetailsHTML = '';
+                let detailsHTML = '';
                 if (notas || logica) {
-                    proDetailsHTML = `<div class="pro-details">`;
+                    detailsHTML = `<div class="tech-details">`;
                     if (notas) {
-                        proDetailsHTML += `
-                            <div class="detail-row">
-                                <i class="fas fa-microscope detail-icon"></i>
-                                <div class="detail-text"><span class="detail-label">Biomecánica:</span>${notas}</div>
+                        detailsHTML += `
+                            <div class="detail-item">
+                                <i class="fas fa-layer-group"></i>
+                                <span><strong>Ejecución:</strong> ${notas}</span>
                             </div>`;
                     }
                     if (logica) {
-                        proDetailsHTML += `
-                            <div class="detail-row">
-                                <i class="fas fa-bullseye detail-icon" style="color: var(--accent-primary);"></i>
-                                <div class="detail-text"><span class="detail-label">Objetivo:</span>${logica}</div>
+                        detailsHTML += `
+                            <div class="detail-item">
+                                <i class="fas fa-crosshairs"></i>
+                                <span><strong>Foco:</strong> ${logica}</span>
                             </div>`;
                     }
-                    proDetailsHTML += `</div>`;
+                    detailsHTML += `</div>`;
                 }
 
                 let resultHTML = '';
                 if (requiereResultado) {
                     resultHTML = `
-                        <div class="result-box">
-                            <i class="fas fa-pen detail-icon"></i>
+                        <div class="result-container">
                             <input type="text" class="result-input" placeholder="${placeholderResultado}">
                         </div>`;
                 }
 
-                blockCard.innerHTML = `
-                    <div class="block-meta">
-                        <div class="block-time"><i class="far fa-clock"></i> ${horario}</div>
-                        <div class="block-phase">${fase}</div>
+                card.innerHTML = `
+                    <div class="task-header">
+                        <span class="task-tag">${fase}</span>
+                        <div class="task-time"><i class="far fa-clock"></i> ${horario}</div>
                     </div>
-                    <div class="block-desc">${descripcion}</div>
-                    ${proDetailsHTML}
+                    <div class="task-content">${descripcion}</div>
+                    ${detailsHTML}
                     ${resultHTML}
                 `;
 
-                sessionDiv.appendChild(blockCard);
+                sessionGroup.appendChild(card);
             });
 
-            return sessionDiv;
+            return sessionGroup;
         }
 
-        // Arrancar la app
         window.onload = initApp;
 
     </script>
