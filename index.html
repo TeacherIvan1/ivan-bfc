@@ -3,28 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Teacher Ivan | Training App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Teacher Ivan BFC Prep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            /* Paleta UI Moderna (Inspirada en el diseño adjunto) */
-            --bg-body: #F0F2F5; /* Fondo claro y limpio */
-            --bg-card: #FFFFFF;
-            --primary-color: #000000;
-            --accent-color: #E2FF31; /* Verde neón vibrante */
-            --accent-secondary: #7000FF; /* Púrpura profundo */
-            --text-main: #111111;
-            --text-muted: #888888;
-            --border-light: #EAEAEC;
+            /* Paleta BFC Games (Turquesa oscuro, Naranja brillante, Blanco) */
+            --bg-dark: #071a15;
+            --bg-gradient: radial-gradient(circle at top right, #0d382b, #05100d);
+            --bfc-orange: #ff3b00;
+            --bfc-green-glow: #2cb67d;
+            --text-main: #ffffff;
+            --text-muted: #8da19b;
+            --card-bg: rgba(13, 35, 28, 0.6);
+            --border-color: rgba(255, 59, 0, 0.3);
             
-            --radius-pill: 50px;
-            --radius-card: 28px;
-            --radius-sm: 14px;
-            
-            --shadow-soft: 0 12px 24px rgba(0, 0, 0, 0.04);
-            --shadow-float: 0 20px 40px rgba(112, 0, 255, 0.15);
+            --font-title: 'Oswald', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
         }
 
         * {
@@ -35,295 +31,370 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-body);
+            font-family: var(--font-body);
+            background: var(--bg-dark);
+            background-image: var(--bg-gradient);
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 20px 15px;
+            overflow-x: hidden;
         }
 
-        .app-wrapper {
+        /* Textura de fondo sutil inspirada en el póster */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10h80v80h-80z" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></svg>');
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
             width: 100%;
-            max-width: 480px;
-            padding: 24px 20px;
+            max-width: 450px;
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 25px;
         }
 
-        /* HEADER */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .greeting {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .greeting-sub {
-            font-size: 13px;
-            color: var(--text-muted);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .greeting-main {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--primary-color);
-            line-height: 1.1;
-        }
-
-        .profile-pic {
-            width: 52px;
-            height: 52px;
-            border-radius: 20px;
-            background: var(--primary-color);
-            color: var(--accent-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: 800;
-            box-shadow: var(--shadow-soft);
-        }
-
-        /* SELECTOR DE DÍAS (Pills flotantes) */
-        .calendar-scroller {
+        /* HEADER & BRANDING */
+        header {
+            text-align: center;
+            margin-bottom: 5px;
             position: relative;
-            width: 100%;
-            overflow-x: auto;
-            padding-bottom: 10px;
-            scrollbar-width: none; 
-        }
-        .calendar-scroller::-webkit-scrollbar { display: none; }
-
-        .days-container {
-            display: flex;
-            gap: 12px;
-            min-width: max-content;
         }
 
-        .day-pill {
-            background: var(--bg-card);
-            color: var(--text-muted);
-            border: 2px solid transparent;
-            padding: 12px 20px;
-            border-radius: var(--radius-pill);
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-soft);
+        .brand-subtitle {
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: var(--bfc-green-glow);
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
-        .day-pill.active {
-            background: var(--primary-color);
-            color: var(--accent-color);
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .main-title {
+            font-family: var(--font-title);
+            font-size: 48px;
+            color: var(--bfc-orange);
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 59, 0, 0.4);
+            margin-top: 5px;
         }
 
-        /* FEED DE ENTRENAMIENTO */
-        .workout-section {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .session-group {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .session-title {
-            font-size: 20px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 4px;
-            color: var(--primary-color);
-        }
-
-        .session-title i {
-            color: var(--accent-secondary);
-            font-size: 22px;
-        }
-
-        /* TARJETAS DE BLOQUES */
-        .task-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 24px;
-            box-shadow: var(--shadow-soft);
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+        /* COUNTDOWN SECTION */
+        .countdown-wrapper {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
             overflow: hidden;
         }
 
-        /* Pequeño acento decorativo en la tarjeta */
-        .task-card::before {
-            content: '';
+        .countdown-wrapper::before {
+            content: ">> PERFORMANCE CAP: HIGH_OUTPUT";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: var(--accent-secondary);
-            border-radius: 6px 0 0 6px;
-        }
-
-        .task-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .task-tag {
-            background: rgba(112, 0, 255, 0.08);
-            color: var(--accent-secondary);
-            padding: 6px 14px;
-            border-radius: var(--radius-pill);
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .task-time {
-            font-size: 14px;
-            font-weight: 600;
+            bottom: 5px;
+            right: 10px;
+            font-size: 8px;
             color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .countdown-label {
+            font-size: 16px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time-value {
+            font-family: var(--font-title);
+            font-size: 42px;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .time-text {
+            font-size: 12px;
+            color: var(--bfc-orange);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* INJURY WARNING */
+        .injury-banner {
+            background: rgba(255, 59, 0, 0.1);
+            border-left: 4px solid var(--bfc-orange);
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #ffbba6;
             display: flex;
             align-items: center;
+            gap: 10px;
+            border-radius: 4px;
+        }
+
+        /* DAY SELECTOR (Añadido pero con estética BFC) */
+        .day-selector-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .day-selector-wrapper::-webkit-scrollbar { display: none; }
+        
+        .day-selector {
+            display: flex;
+            gap: 10px;
+            min-width: max-content;
+            padding-bottom: 5px;
+        }
+
+        .day-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-family: var(--font-title);
+            font-size: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .day-btn.active {
+            background: var(--bfc-orange);
+            color: white;
+            border-color: var(--bfc-orange);
+            box-shadow: 0 0 15px rgba(255, 59, 0, 0.4);
+        }
+
+        /* WORKOUT FEED & CARDS */
+        .workout-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .session-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 18px;
+            border-top: 3px solid var(--bfc-orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .session-title {
+            font-family: var(--font-title);
+            font-size: 22px;
+            color: var(--bfc-orange);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 1px;
+        }
+
+        .movement-block {
+            margin-bottom: 20px;
+            padding-left: 14px;
+            border-left: 2px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            flex-direction: column;
             gap: 6px;
         }
 
-        .task-content {
-            font-size: 17px;
-            line-height: 1.6;
-            font-weight: 500;
-            color: var(--text-main);
+        .movement-block:last-child {
+            margin-bottom: 0;
         }
 
-        /* Detalles técnicos (Biomecánica/Objetivo) */
-        .tech-details {
-            background: var(--bg-body);
-            border-radius: var(--radius-sm);
-            padding: 16px;
+        .block-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-family: var(--font-title);
+            color: var(--bfc-green-glow);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .block-time {
+            color: var(--text-muted);
+            font-family: var(--font-body);
+        }
+
+        .movement-name {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        /* ESTILOS PARA LA SECCIÓN DE NOTAS PRO */
+        .movement-note {
+            margin-top: 6px;
+            font-size: 14px;
+            color: #ffbba6;
+            background: rgba(255, 59, 0, 0.08);
+            padding: 10px 12px;
+            border-left: 2px solid var(--bfc-orange);
+            border-radius: 0 4px 4px 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-        }
-
-        .detail-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 14px;
+            gap: 6px;
             line-height: 1.4;
         }
 
-        .detail-item i {
-            color: var(--primary-color);
-            margin-top: 3px;
-            font-size: 14px;
+        .note-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
         }
 
-        .detail-item span { color: var(--text-muted); }
-        .detail-item strong { color: var(--text-main); font-weight: 700; }
+        .note-row i {
+            margin-top: 3px;
+            font-size: 12px;
+        }
 
         /* Input de Resultados */
         .result-container {
-            margin-top: 4px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .result-input {
             width: 100%;
-            background: var(--bg-body);
-            border: 2px solid transparent;
-            color: var(--primary-color);
-            padding: 14px 18px;
-            border-radius: var(--radius-sm);
-            font-family: inherit;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-family: var(--font-body);
             font-size: 15px;
-            font-weight: 500;
             outline: none;
             transition: border-color 0.2s;
         }
 
-        .result-input::placeholder { color: var(--text-muted); }
-        .result-input:focus { border-color: var(--accent-secondary); background: var(--bg-card); }
+        .result-input::placeholder { color: rgba(255,255,255,0.3); }
+        .result-input:focus { border-color: var(--bfc-orange); }
 
-        /* Estado de carga */
-        .loading-screen {
+        .loading-state, .error-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 16px;
             display: flex;
             flex-direction: column;
+            gap: 10px;
             align-items: center;
-            justify-content: center;
-            padding: 60px 20px;
-            gap: 16px;
-            color: var(--text-muted);
-        }
-        
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid var(--border-light);
-            border-top: 4px solid var(--accent-secondary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
         }
 
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .error-state { color: var(--bfc-orange); }
+        .fa-spinner { animation: spin 1s linear infinite; font-size: 24px; color: var(--bfc-green-glow); }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
     </style>
 </head>
 <body>
 
-    <div class="app-wrapper">
+    <div class="container">
         
-        <header class="top-bar">
-            <div class="greeting">
-                <span class="greeting-sub">BFC Games 2026</span>
-                <span class="greeting-main">Teacher Ivan</span>
-            </div>
-            <div class="profile-pic">IM</div>
+        <header>
+            <div class="brand-subtitle">Teacher Ivan</div>
+            <h1 class="main-title">BFC - PREP</h1>
         </header>
 
-        <div class="calendar-scroller">
-            <div class="days-container" id="day-selector">
+        <div class="countdown-wrapper">
+            <span class="countdown-label">BFC Games 2026 Starts In</span>
+            <div class="countdown-timer" id="countdown">
+                <div class="time-box"><span class="time-value" id="days">00</span><span class="time-text">Días</span></div>
+                <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-text">Hrs</span></div>
+                <div class="time-box"><span class="time-value" id="mins">00</span><span class="time-text">Min</span></div>
+            </div>
+        </div>
+
+        <div class="injury-banner">
+            <i class="fas fa-triangle-exclamation"></i>
+            <span><strong>Protocolo Recuperación:</strong> Calleras prohibidas esta semana. Cero fricción en barra para regenerar la piel.</span>
+        </div>
+
+        <div class="day-selector-wrapper">
+            <div class="day-selector" id="day-selector">
                 </div>
         </div>
 
         <div class="workout-section" id="workout-feed">
-            <div class="loading-screen">
-                <div class="spinner"></div>
-                <span style="font-weight: 500;">Sincronizando WOD...</span>
+            <div class="loading-state">
+                <i class="fas fa-spinner"></i>
+                <span>Sincronizando WOD Data...</span>
             </div>
         </div>
 
     </div>
 
     <script>
+        // URL DE TU GOOGLE APPS SCRIPT
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbzJW7QFzW2BEJOPPgBtNTQZmoLpKheJ9MpDJniCpADrl3vVzVEQHoNmVAEZnvtK3Mm3/exec';
-        
+
+        // 1. LÓGICA DEL COUNTDOWN (Objetivo: 16 Mayo 2026)
+        function initCountdown() {
+            const targetDate = new Date('May 16, 2026 00:00:00').getTime();
+
+            const updateTimer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    clearInterval(updateTimer);
+                    document.getElementById('countdown').innerHTML = '<span class="time-value" style="color: var(--bfc-green-glow)">¡IT\'S GAME DAY!</span>';
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('mins').innerText = mins < 10 ? '0' + mins : mins;
+            }, 1000);
+        }
+
+        // 2. LÓGICA DE DATOS Y RENDERIZADO
         let globalWorkoutData = [];
         const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-        let currentSelectedDay = daysOfWeek[new Date().getDay()];
+        let currentSelectedDay = daysOfWeek[new Date().getDay()]; // Día actual por defecto
 
         function initApp() {
+            initCountdown();
             renderDaySelector();
             fetchWorkoutData();
         }
@@ -331,12 +402,13 @@
         function renderDaySelector() {
             const selectorContainer = document.getElementById('day-selector');
             selectorContainer.innerHTML = '';
+
             const orderedDays = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
             orderedDays.forEach(day => {
                 const btn = document.createElement('button');
-                btn.className = `day-pill ${day === currentSelectedDay ? 'active' : ''}`;
-                btn.innerText = day; 
+                btn.className = `day-btn ${day === currentSelectedDay ? 'active' : ''}`;
+                btn.innerText = day.substring(0, 3); // LUN, MAR, MIE...
                 btn.onclick = () => {
                     currentSelectedDay = day;
                     updateActiveDayBtn();
@@ -345,13 +417,16 @@
                 selectorContainer.appendChild(btn);
             });
             
-            const activeBtn = document.querySelector('.day-pill.active');
-            if(activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            // Auto-scroll al día seleccionado
+            const activeBtn = document.querySelector('.day-btn.active');
+            if(activeBtn) {
+                activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
         }
 
         function updateActiveDayBtn() {
-            document.querySelectorAll('.day-pill').forEach(btn => {
-                if (btn.innerText === currentSelectedDay) {
+            document.querySelectorAll('.day-btn').forEach(btn => {
+                if (btn.innerText === currentSelectedDay.substring(0, 3).toUpperCase()) {
                     btn.classList.add('active');
                 } else {
                     btn.classList.remove('active');
@@ -362,14 +437,15 @@
         async function fetchWorkoutData() {
             try {
                 const response = await fetch(GAS_URL);
-                if (!response.ok) throw new Error('Error');
+                if (!response.ok) throw new Error('Error de conexión');
                 globalWorkoutData = await response.json();
                 renderWorkoutFeed();
             } catch (error) {
+                console.error(error);
                 document.getElementById('workout-feed').innerHTML = `
-                    <div class="loading-screen" style="color: var(--primary-color);">
-                        <i class="fas fa-triangle-exclamation" style="font-size: 30px;"></i>
-                        <span>Error al cargar los datos de Sheets.</span>
+                    <div class="error-state">
+                        <i class="fas fa-exclamation-triangle" style="font-size:30px;"></i>
+                        <span>No se pudo sincronizar la programación. Revisa el enlace de Apps Script.</span>
                     </div>`;
             }
         }
@@ -385,9 +461,9 @@
 
             if (dayData.length === 0) {
                 feed.innerHTML = `
-                    <div class="loading-screen">
-                        <i class="fas fa-mug-hot" style="font-size: 32px; color: var(--text-muted);"></i>
-                        <span>Día de descanso programado.</span>
+                    <div class="loading-state">
+                        <i class="fas fa-bed" style="font-size: 32px; color: var(--text-muted); margin-bottom:10px;"></i>
+                        <span>Día de descanso activo o sin programación.</span>
                     </div>`;
                 return;
             }
@@ -395,49 +471,50 @@
             const morningBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('mañana'));
             const afternoonBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('tarde'));
 
-            if (morningBlocks.length > 0) feed.appendChild(createSessionDOM('Morning Flow', 'fas fa-droplet', morningBlocks));
-            if (afternoonBlocks.length > 0) feed.appendChild(createSessionDOM('Performance WOD', 'fas fa-bolt', afternoonBlocks));
+            if (morningBlocks.length > 0) feed.appendChild(createSessionDOM('Early Session', 'fas fa-sun', morningBlocks));
+            if (afternoonBlocks.length > 0) feed.appendChild(createSessionDOM('Performance Box', 'fas fa-bolt', afternoonBlocks));
         }
 
         function createSessionDOM(title, iconClass, blocks) {
-            const sessionGroup = document.createElement('div');
-            sessionGroup.className = 'session-group';
+            const sessionCard = document.createElement('div');
+            sessionCard.className = 'session-card';
             
             const header = document.createElement('div');
             header.className = 'session-title';
             header.innerHTML = `<i class="${iconClass}"></i> ${title}`;
-            sessionGroup.appendChild(header);
+            sessionCard.appendChild(header);
 
             blocks.forEach(row => {
+                // 0:Día, 1:Sesión, 2:Horario, 3:Fase, 4:Descripción, 5:Notas, 6:Logica, 7:Resultados
                 const horario = row[2] || '--:--';
                 const fase = row[3] || 'Bloque';
                 const descripcion = row[4] || '';
                 const notas = row[5] || '';
                 const logica = row[6] || '';
                 const requiereResultado = row[7] ? row[7].trim() !== '' : false;
-                const placeholderResultado = row[7] || 'Escribe tu resultado...';
+                const placeholderResultado = row[7] || 'Escribe tu resultado aquí...';
 
-                const card = document.createElement('div');
-                card.className = 'task-card';
+                const blockContainer = document.createElement('div');
+                blockContainer.className = 'movement-block';
 
-                let detailsHTML = '';
+                let proDetailsHTML = '';
                 if (notas || logica) {
-                    detailsHTML = `<div class="tech-details">`;
+                    proDetailsHTML = `<div class="movement-note">`;
                     if (notas) {
-                        detailsHTML += `
-                            <div class="detail-item">
-                                <i class="fas fa-layer-group"></i>
-                                <span><strong>Ejecución:</strong> ${notas}</span>
+                        proDetailsHTML += `
+                            <div class="note-row">
+                                <i class="fas fa-microscope" style="color: var(--bfc-orange);"></i>
+                                <span><strong style="color:var(--text-main)">Biomecánica:</strong> ${notas}</span>
                             </div>`;
                     }
                     if (logica) {
-                        detailsHTML += `
-                            <div class="detail-item">
-                                <i class="fas fa-crosshairs"></i>
-                                <span><strong>Foco:</strong> ${logica}</span>
+                        proDetailsHTML += `
+                            <div class="note-row">
+                                <i class="fas fa-bullseye" style="color: var(--bfc-green-glow);"></i>
+                                <span><strong style="color:var(--text-main)">Objetivo:</strong> ${logica}</span>
                             </div>`;
                     }
-                    detailsHTML += `</div>`;
+                    proDetailsHTML += `</div>`;
                 }
 
                 let resultHTML = '';
@@ -448,22 +525,23 @@
                         </div>`;
                 }
 
-                card.innerHTML = `
-                    <div class="task-header">
-                        <span class="task-tag">${fase}</span>
-                        <div class="task-time"><i class="far fa-clock"></i> ${horario}</div>
+                blockContainer.innerHTML = `
+                    <div class="block-meta">
+                        <span>${fase}</span>
+                        <span class="block-time"><i class="far fa-clock"></i> ${horario}</span>
                     </div>
-                    <div class="task-content">${descripcion}</div>
-                    ${detailsHTML}
+                    <div class="movement-name">${descripcion}</div>
+                    ${proDetailsHTML}
                     ${resultHTML}
                 `;
 
-                sessionGroup.appendChild(card);
+                sessionCard.appendChild(blockContainer);
             });
 
-            return sessionGroup;
+            return sessionCard;
         }
 
+        // Arrancar la app al cargar
         window.onload = initApp;
 
     </script>
