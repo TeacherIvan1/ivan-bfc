@@ -146,7 +146,7 @@
             letter-spacing: 1px;
         }
 
-        /* INJURY WARNING */
+        /* INJURY BANNER */
         .injury-banner {
             background: rgba(255, 59, 0, 0.1);
             border-left: 4px solid var(--bfc-orange);
@@ -159,7 +159,83 @@
             border-radius: 4px;
         }
 
-        /* DAY SELECTOR (Añadido pero con estética BFC) */
+        /* NUTRITION ACCORDION */
+        details.nutrition-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--bfc-green-glow);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        details.nutrition-panel summary {
+            font-family: var(--font-title);
+            font-size: 20px;
+            color: var(--text-main);
+            cursor: pointer;
+            list-style: none; /* Quitar flecha por defecto */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        details.nutrition-panel summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        details.nutrition-panel summary .fa-chevron-down {
+            transition: transform 0.3s;
+            color: var(--bfc-green-glow);
+        }
+
+        details.nutrition-panel[open] summary .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .nutrition-content {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+
+        .nutri-phase-title {
+            color: var(--bfc-green-glow);
+            font-family: var(--font-title);
+            font-size: 18px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nutri-item {
+            margin-bottom: 10px;
+            padding-left: 12px;
+            border-left: 2px solid rgba(44, 182, 125, 0.4);
+        }
+
+        .nutri-item:last-child { margin-bottom: 0; }
+        
+        .nutri-name {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 15px;
+        }
+
+        .nutri-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-top: 3px;
+        }
+
+        /* DAY SELECTOR */
         .day-selector-wrapper {
             width: 100%;
             overflow-x: auto;
@@ -328,8 +404,8 @@
     <div class="container">
         
         <header>
-            <div class="brand-subtitle">Teacher Ivan</div>
-            <h1 class="main-title">BFC - PREP</h1>
+            <div class="brand-subtitle">Teacher Ivan - Lifestyle</div>
+            <h1 class="main-title">ADVANCED</h1>
         </header>
 
         <div class="countdown-wrapper">
@@ -345,6 +421,89 @@
             <i class="fas fa-triangle-exclamation"></i>
             <span><strong>Protocolo Recuperación:</strong> Calleras prohibidas esta semana. Cero fricción en barra para regenerar la piel.</span>
         </div>
+
+        <details class="nutrition-panel">
+            <summary>
+                <span><i class="fas fa-utensils"></i> Protocolo Nutricional: Peak Week</span>
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            
+            <div class="nutrition-content">
+                <div>
+                    <div class="nutri-phase-title"><i class="fas fa-battery-half"></i> Fase 1: Descarga y Mantenimiento (Lunes 11 a Miércoles 13)</div>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">El volumen de entrenamiento baja, así que mantenemos las calorías a raya pero aseguramos nutrientes antiinflamatorios.</p>
+                    
+                    <div class="nutri-item">
+                        <div class="nutri-name">Desayuno</div>
+                        <div class="nutri-desc">Pancakes salados (coronados con queso) o crepes de jamón y queso. Acompáñalos con tu café negro habitual para arrancar antes de ir al colegio.</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-name">Media Mañana (Snack en el recreo)</div>
+                        <div class="nutri-desc">Un bowl de avena cocida con un toque de miel y canela (excelente para la sensibilidad a la insulina).</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-name">Almuerzo</div>
+                        <div class="nutri-desc">200g de pechuga de pollo a la plancha, 1 taza de arroz blanco (fácil digestión) y media palta. La palta nos dará esa grasa saludable crucial para mantener a raya la inflamación de la rodilla.</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-name">Cena</div>
+                        <div class="nutri-desc">3 o 4 huevos revueltos con una porción de queso de cabra y vegetales de hoja verde cocidos (espinaca o acelga). El queso de cabra se digiere mucho más rápido que el de vaca y es perfecto para la noche.</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="nutri-phase-title"><i class="fas fa-battery-full"></i> Fase 2: Carga de Carbohidratos y Viaje (Jueves 14 y Viernes 15)</div>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">Aquí empezamos a llenar el tanque. Reducimos las grasas (retrasan la digestión) y subimos los carbohidratos.</p>
+                    
+                    <div class="nutri-item">
+                        <div class="nutri-name">Desayuno</div>
+                        <div class="nutri-desc">Aumentamos la porción de avena al doble. Puedes sumar unos huevos cocidos (solo las claras para evitar la grasa de la yema) y tu café.</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-name">Almuerzo</div>
+                        <div class="nutri-desc">Pescado blanco o pollo (sin aceite), 2 tazas de arroz blanco o papa hervida, sin palta hoy.</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-name">Cena (Viernes en Santa Cruz)</div>
+                        <div class="nutri-desc">Un buen plato de pasta con salsa de tomate natural y algo de carne magra. Cero salsas pesadas, cremas o lácteos la noche antes de salir a la arena.</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="nutri-phase-title"><i class="fas fa-fire"></i> Fase 3: La Guerra (Sábado 16 y Domingo 17)</div>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">En competencia, la digestión se paraliza por la adrenalina. Todo debe ser líquido o de absorción instantánea.</p>
+                    
+                    <div class="nutri-item">
+                        <div class="nutri-name">Desayuno (2-3 horas antes)</div>
+                        <div class="nutri-desc">Crepes ligeros con mermelada y café. Necesitas que el estómago esté vacío cuando suene el reloj.</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-name">Entre WODs (La ventana de oro)</div>
+                        <div class="nutri-desc">Olvídate de comidas sólidas pesadas. Necesitas carbohidratos intra-entreno líquidos, gomitas, un plátano muy maduro o compota de manzana.</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-name">Almuerzo (Solo si >3 hrs entre eventos)</div>
+                        <div class="nutri-desc">Arroz blanco solo con una pechuga de pollo muy limpia.</div>
+                    </div>
+                    <div class="nutri-item">
+                        <div class="nutri-name">Cena del Sábado</div>
+                        <div class="nutri-desc">Recuperación total. Arroz, pollo o pescado, y reincorporamos un poco de palta. A dormir temprano.</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="nutri-phase-title" style="color: var(--bfc-orange);"><i class="fas fa-trophy"></i> Domingo por la Noche: Celebración</div>
+                    <div class="nutri-item" style="border-left-color: var(--bfc-orange);">
+                        <div class="nutri-desc">Termina el último WOD, cruzas la línea de meta y el protocolo estricto se apaga. Es el momento de recuperar la mente y celebrar el trabajo duro de todos estos meses. Para esta noche, una pizza hawaiana, una hamburguesa doble (como las de Big Burgers) o un buen plato de charquekan son la recompensa perfecta para disfrutar junto a Lau ❤️. El cuerpo absorberá esas calorías como una esponja después del desgaste masivo del fin de semana.</div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(44, 182, 125, 0.1); border-left: 3px solid var(--bfc-green-glow); padding: 12px; border-radius: 4px; margin-top: 10px;">
+                    <span style="color: #a3ffdc; font-size: 14px;"><strong><i class="fas fa-tint" style="color: var(--bfc-green-glow);"></i> Regla de oro como tu Coach:</strong> Bebe entre 3 y 4 litros de agua diarios a partir de hoy, y añade un poco de sal extra a tus comidas desde el miércoles para asegurar que tus músculos retengan agua y no sufras calambres por el calor y la humedad de Santa Cruz. ¡A ganar!</span>
+                </div>
+
+            </div>
+        </details>
 
         <div class="day-selector-wrapper">
             <div class="day-selector" id="day-selector">
