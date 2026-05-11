@@ -15,17 +15,17 @@
             --bfc-green-glow: #2cb67d;
             --text-main: #ffffff;
             --text-muted: #8da19b;
-            --card-bg: rgba(13, 35, 28, 0.8);
+            --card-bg: rgba(13, 35, 28, 0.7);
             --border-color: rgba(255, 59, 0, 0.3);
             --font-title: 'Oswald', sans-serif;
             --font-body: 'Rajdhani', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
         body {
             font-family: var(--font-body);
-            background: var(--bg-dark);
-            background-image: var(--bg-gradient);
+            background: var(--bg-dark) var(--bg-gradient);
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -35,60 +35,61 @@
         }
 
         .container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 20px; }
-        
+
         header { text-align: center; margin-bottom: 5px; }
         .brand-subtitle { font-size: 14px; letter-spacing: 3px; color: var(--bfc-green-glow); text-transform: uppercase; font-weight: 700; }
-        .main-title { font-family: var(--font-title); font-size: 42px; color: var(--bfc-orange); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 15px rgba(255, 59, 0, 0.4); }
+        .main-title { font-family: var(--font-title); font-size: 44px; color: var(--bfc-orange); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 15px rgba(255, 59, 0, 0.4); }
 
         /* COUNTDOWN */
         .countdown-wrapper { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .countdown-timer { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
         .time-box { display: flex; flex-direction: column; align-items: center; }
-        .time-value { font-family: var(--font-title); font-size: 32px; color: var(--text-main); line-height: 1; }
-        .time-text { font-size: 10px; color: var(--bfc-orange); text-transform: uppercase; font-weight: 700; }
+        .time-value { font-family: var(--font-title); font-size: 36px; color: var(--text-main); line-height: 1; }
+        .time-text { font-size: 11px; color: var(--bfc-orange); text-transform: uppercase; font-weight: 700; }
 
-        /* PANELS */
-        details { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
-        summary { font-family: var(--font-title); font-size: 18px; color: var(--bfc-orange); cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; list-style: none; }
-        summary::-webkit-details-marker { display: none; }
-        .panel-content { margin-top: 15px; font-size: 14px; line-height: 1.4; color: var(--text-muted); }
-        
-        /* SCHEDULE CARDS */
-        .comp-day { border-left: 3px solid var(--bfc-green-glow); padding-left: 10px; margin-bottom: 15px; }
-        .comp-day h4 { color: var(--text-main); text-transform: uppercase; margin-bottom: 5px; font-size: 16px; }
-        .athlete-row { display: flex; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 5px 8px; border-radius: 4px; margin-bottom: 4px; }
-        .athlete-name { font-weight: 700; font-size: 12px; color: var(--bfc-green-glow); }
-        .event-time { color: var(--text-main); font-weight: 500; }
+        /* PANELS (Nutrition & Logistics) */
+        details.info-panel { background: var(--card-bg); border: 1px solid rgba(44, 182, 125, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 5px; }
+        summary { font-family: var(--font-title); font-size: 16px; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 1px; }
+        summary i.status-icon { color: var(--bfc-green-glow); }
+        .panel-content { margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; color: var(--text-muted); }
 
-        /* DIET & LOGISTICS */
-        .highlight-box { background: rgba(44, 182, 125, 0.1); border-left: 2px solid var(--bfc-green-glow); padding: 10px; margin-bottom: 10px; border-radius: 0 4px 4px 0; }
-        .highlight-title { color: var(--bfc-green-glow); font-weight: 700; margin-bottom: 3px; display: block; font-size: 13px; }
+        /* BUDGET LIST */
+        .budget-grid { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 10px; }
+        .budget-item { border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 4px; }
+        .budget-total { color: var(--bfc-orange); font-weight: 700; font-size: 16px; margin-top: 8px; border-top: 1px solid var(--bfc-orange); padding-top: 8px; }
 
         /* DAY SELECTOR */
-        .day-selector { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
-        .day-selector::-webkit-scrollbar { display: none; }
-        .day-btn { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 6px 14px; border-radius: 15px; font-family: var(--font-title); font-size: 13px; text-transform: uppercase; cursor: pointer; }
-        .day-btn.active { background: var(--bfc-orange); color: white; border-color: var(--bfc-orange); box-shadow: 0 0 10px rgba(255, 59, 0, 0.4); }
+        .day-selector-wrapper { overflow-x: auto; scrollbar-width: none; margin: 10px 0; }
+        .day-selector { display: flex; gap: 8px; min-width: max-content; }
+        .day-btn { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 8px 14px; border-radius: 15px; font-family: var(--font-title); cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+        .day-btn.active { background: var(--bfc-orange); color: white; border-color: var(--bfc-orange); box-shadow: 0 0 10px rgba(255, 59, 0, 0.3); }
 
-        .session-card { background: var(--card-bg); border-radius: 8px; padding: 15px; border-top: 3px solid var(--bfc-orange); margin-bottom: 20px; }
-        .movement-block { margin-bottom: 15px; padding-left: 10px; border-left: 2px solid rgba(255, 255, 255, 0.1); }
-        .movement-name { font-weight: 700; font-size: 16px; color: var(--text-main); }
-        .movement-note { font-size: 13px; color: #ffbba6; background: rgba(255, 59, 0, 0.05); padding: 8px; margin-top: 5px; border-radius: 4px; }
+        /* COMP CARDS */
+        .session-card { background: var(--card-bg); border-radius: 8px; padding: 15px; border-top: 3px solid var(--bfc-orange); margin-bottom: 15px; }
+        .session-title { font-family: var(--font-title); font-size: 20px; color: var(--bfc-orange); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .movement-block { padding-left: 12px; border-left: 2px solid var(--bfc-green-glow); margin-bottom: 15px; }
+        .athlete-tag { font-size: 11px; font-weight: 700; background: var(--bfc-green-glow); color: var(--bg-dark); padding: 2px 6px; border-radius: 4px; text-transform: uppercase; margin-bottom: 4px; display: inline-block; }
+        .athlete-tag.lau { background: var(--bfc-orange); color: white; }
+        .comp-info { display: flex; justify-content: space-between; font-family: var(--font-title); font-size: 14px; margin-bottom: 4px; }
+        .comp-desc { font-weight: 700; font-size: 16px; color: var(--text-main); margin-bottom: 2px; }
+        .comp-arena { font-size: 13px; color: var(--text-muted); font-style: italic; }
 
-        .injury-banner { background: rgba(255, 59, 0, 0.1); border-left: 4px solid var(--bfc-orange); padding: 10px; font-size: 13px; color: #ffbba6; border-radius: 4px; margin-bottom: 10px; }
+        .injury-banner { background: rgba(255, 59, 0, 0.1); border-left: 4px solid var(--bfc-orange); padding: 10px; font-size: 13px; border-radius: 4px; margin-bottom: 10px; }
+        
+        .fa-spinner { animation: spin 1s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
         <header>
-            <div class="brand-subtitle">Ivan & Lau</div>
-            <h1 class="main-title">BFC PREP</h1>
+            <div class="brand-subtitle">BFC Games 2026</div>
+            <h1 class="main-title">TEACHER IVAN</h1>
         </header>
 
         <div class="countdown-wrapper">
-            <span class="time-text" style="letter-spacing: 2px;">BFC Games 2026 Starts In</span>
+            <span style="font-size: 14px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 2px;">Comienza en</span>
             <div class="countdown-timer" id="countdown">
                 <div class="time-box"><span class="time-value" id="days">00</span><span class="time-text">Días</span></div>
                 <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-text">Hrs</span></div>
@@ -97,139 +98,130 @@
         </div>
 
         <div class="injury-banner">
-            <i class="fas fa-exclamation-triangle"></i> <strong>Aviso:</strong> Isométricos suaves hoy. Ahorrar energía para el viernes/sábado.
+            <i class="fas fa-exclamation-triangle"></i> <strong>Peak State:</strong> Hidratación agresiva (+4L). Movilidad de cadera obligatoria antes de cada WOD.
         </div>
 
-        <details>
-            <summary><span><i class="fas fa-stopwatch"></i> Horarios de Arena</span><i class="fas fa-chevron-down"></i></summary>
+        <details class="info-panel">
+            <summary>
+                <span><i class="fas fa-map-marked-alt status-icon"></i> Logística & Presupuesto</span>
+                <i class="fas fa-chevron-down"></i>
+            </summary>
             <div class="panel-content">
-                <div class="comp-day">
-                    <h4>Viernes 15 (Viernes)</h4>
-                    <div class="athlete-row"><span class="athlete-name">LAU (Dupla Mix)</span><span class="event-time">17:20 - 18:40 (Atlestar)</span></div>
-                    <div class="athlete-row"><span class="athlete-name">IVAN (Advanced)</span><span class="event-time">DESCANSO / COACH</span></div>
-                </div>
-                <div class="comp-day">
-                    <h4>Sábado 16 (Día Pro)</h4>
-                    <div class="athlete-row"><span class="athlete-name">IVAN - W1</span><span class="event-time">08:00 (Atlestar)</span></div>
-                    <div class="athlete-row"><span class="athlete-name">LAU - W2</span><span class="event-time">09:20 (JAC)</span></div>
-                    <div class="athlete-row"><span class="athlete-name">IVAN - W2</span><span class="event-time">12:16 (JAC)</span></div>
-                    <div class="athlete-row"><span class="athlete-name">LAU - W3</span><span class="event-time">14:08 (Atlestar)</span></div>
-                    <div class="athlete-row"><span class="athlete-name">IVAN - W3</span><span class="event-time">17:04 (Atlestar)</span></div>
-                </div>
-                <div class="comp-day">
-                    <h4>Domingo 17 (Finales)</h4>
-                    <div class="athlete-row"><span class="athlete-name">IVAN - W4</span><span class="event-time">08:00 (JAC)</span></div>
-                    <div class="athlete-row"><span class="athlete-name">IVAN - W5</span><span class="event-time">11:45 (Atlestar)</span></div>
-                    <div class="athlete-row"><span class="athlete-name">LAU - W4</span><span class="event-time">13:45 (JAC)</span></div>
+                <p><strong>Airbnb:</strong> Av. Beni y 4to Anillo (Próximo a Banzer). Táctica ideal: Conexión directa norte vía Av. G77 hacia Sonilum Arena.</p>
+                <div class="budget-grid">
+                    <span class="budget-item">Transporte (Uber/inDrive)</span><span class="budget-item">360 BOB</span>
+                    <span class="budget-item">Supermercado (Fidalga Beni)</span><span class="budget-item">350 BOB</span>
+                    <span class="budget-item">Comidas & Restaurantes</span><span class="budget-item">600 BOB</span>
+                    <span class="budget-item">Extras & Emergencias</span><span class="budget-item">200 BOB</span>
+                    <span class="budget-total">PRESUPUESTO TOTAL</span><span class="budget-total">1,510 BOB</span>
                 </div>
             </div>
         </details>
 
-        <details>
-            <summary><span><i class="fas fa-utensils"></i> Dieta Peak Week</span><i class="fas fa-chevron-down"></i></summary>
+        <details class="info-panel">
+            <summary>
+                <span><i class="fas fa-utensils status-icon"></i> Protocolo Nutricional</span>
+                <i class="fas fa-chevron-down"></i>
+            </summary>
             <div class="panel-content">
-                <div class="highlight-box">
-                    <span class="highlight-title">LUN - MIE (Mantenimiento)</span>
-                    Desayuno: Pancakes salados/queso + Café.<br>Almuerzo: 200g Pollo + 1 taza Arroz + 1/2 Palta.<br>Cena: 4 Huevos + Queso Cabra + Espinaca.
-                </div>
-                <div class="highlight-box">
-                    <span class="highlight-title">JUE - VIE (Carga Carbos)</span>
-                    Sube la Avena al doble. Reduce grasas (sin palta). Cena Vie: Pasta salsa tomate + Pollo (Santa Cruz).
-                </div>
-                <div class="highlight-box" style="border-color: var(--bfc-orange);">
-                    <span class="highlight-title" style="color: var(--bfc-orange);">SAB - DOM (Arena)</span>
-                    Desayuno: Crepes + Mermelada + Café.<br>Intra-WOD: Gomitas, Plátano maduro, Compotas.<br>Cena Sab: Recuperación con Arroz/Pollo/Palta.
-                </div>
+                <p style="color: var(--bfc-orange); font-weight:700;">JUEVES - VIERNES: Carga</p>
+                <p>Avena doble ración, arroz blanco, pollo magro. Cero grasas pesadas.</p>
+                <p style="color: var(--bfc-orange); font-weight:700; margin-top:10px;">SÁBADO - DOMINGO: Guerra</p>
+                <p>Intra-WOD: Gomitas, plátano maduro, hidratación con sal extra. Cena Sábado: Arroz + Polto + Palta.</p>
+                <p style="color: var(--bfc-green-glow); font-weight:700; margin-top:10px;">DOMINGO NOCHE: RECOMPENSA</p>
+                <p>Pizza Hawaiana / Big Burgers / Charquekan. Celebración con Lau.</p>
             </div>
         </details>
 
-        <details>
-            <summary><span><i class="fas fa-map-marked-alt"></i> Logística & Presupuesto</span><i class="fas fa-chevron-down"></i></summary>
-            <div class="panel-content">
-                <p><strong>Airbnb:</strong> Av. Beni y 4to Anillo. Cercano a Fidalga Beni (Market base).</p>
-                <p><strong>Traslados:</strong> VVI ➔ Sonilum ➔ Airbnb (Jueves 19:00). Uso de G77 recomendado.</p>
-                <div class="highlight-box" style="margin-top:10px;">
-                    <span class="highlight-title">Presupuesto Estimado (BOB)</span>
-                    Transporte: 360 | Super: 350 | Comidas: 600 | Extras: 200.<br>
-                    <strong>Total Sugerido: 1,500 BOB</strong>
-                </div>
-            </div>
-        </details>
+        <div class="day-selector-wrapper">
+            <div class="day-selector" id="day-selector"></div>
+        </div>
 
-        <div class="day-selector" id="day-selector"></div>
-        <div id="workout-feed"><div class="loading-state"><i class="fas fa-spinner fa-spin"></i> Cargando programación...</div></div>
-
+        <div id="workout-feed"></div>
     </div>
 
     <script>
-        const GAS_URL = 'https://script.google.com/macros/s/AKfycbzJW7QFzW2BEJOPPgBtNTQZmoLpKheJ9MpDJniCpADrl3vVzVEQHoNmVAEZnvtK3Mm3/exec';
-        let globalWorkoutData = [];
-        const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-        let currentSelectedDay = daysOfWeek[new Date().getDay()];
+        const compSchedule = {
+            "Jueves 14": [
+                { athlete: "IVAN & LAU", time: "17:45", desc: "Vuelo Sucre ➔ Santa Cruz", arena: "BOA OB585", phase: "LOGÍSTICA" },
+                { athlete: "IVAN & LAU", time: "19:15", desc: "Briefing & Recojo de Kits", arena: "Sonilum Arena", phase: "ACREDITACIÓN" }
+            ],
+            "Viernes 15": [
+                { athlete: "IVAN", time: "Mañana", desc: "Descanso Activo & Carga Glucógeno", arena: "Airbnb Beni", phase: "REPOSO" },
+                { athlete: "LAU", time: "17:20 - 18:40", desc: "WOD 1: Duplas Scaled Mix", arena: "Atlestar Arena", phase: "COMPETENCIA" }
+            ],
+            "Sábado 16": [
+                { athlete: "IVAN", time: "08:00 - 09:20", desc: "WOD 1: Individual Adv", arena: "Atlestar Arena", phase: "COMPETENCIA" },
+                { athlete: "LAU", time: "09:20 - 10:40", desc: "WOD 2: Duplas Scaled Mix", arena: "JAC Arena", phase: "COMPETENCIA" },
+                { athlete: "IVAN", time: "12:16 - 13:36", desc: "WOD 2: Individual Adv", arena: "JAC Arena", phase: "COMPETENCIA" },
+                { athlete: "LAU", time: "14:08 - 15:28", desc: "WOD 3: Duplas Scaled Mix", arena: "Atlestar Arena", phase: "COMPETENCIA" },
+                { athlete: "IVAN", time: "17:04 - 18:24", desc: "WOD 3: Individual Adv", arena: "Atlestar Arena", phase: "COMPETENCIA" }
+            ],
+            "Domingo 17": [
+                { athlete: "IVAN", time: "08:00 - 09:15", desc: "WOD 4: Individual Adv", arena: "JAC Arena", phase: "COMPETENCIA" },
+                { athlete: "IVAN", time: "11:45 - 13:00", desc: "WOD 5: GRAN FINAL", arena: "Atlestar Arena", phase: "FINALES" },
+                { athlete: "LAU", time: "13:45 - 15:00", desc: "WOD 4: Duplas Scaled Mix", arena: "JAC Arena", phase: "COMPETENCIA" }
+            ],
+            "Lunes 18": [
+                { athlete: "IVAN & LAU", time: "13:00", desc: "Almuerzo de Campeones", arena: "La Casa del Camba", phase: "CELEBRACIÓN" },
+                { athlete: "IVAN & LAU", time: "16:30", desc: "Vuelo VVI ➔ Sucre", arena: "BOA OB584", phase: "RETORNO" }
+            ]
+        };
+
+        let currentDay = "Sábado 16";
+
+        function initApp() {
+            initCountdown();
+            renderDays();
+            renderFeed();
+        }
 
         function initCountdown() {
-            const targetDate = new Date('May 16, 2026 00:00:00').getTime();
+            const target = new Date('May 16, 2026 08:00:00').getTime();
             setInterval(() => {
                 const now = new Date().getTime();
-                const dist = targetDate - now;
-                if (dist < 0) return;
-                document.getElementById('days').innerText = Math.floor(dist / (1000 * 60 * 60 * 24));
-                document.getElementById('hours').innerText = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById('mins').innerText = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+                const diff = target - now;
+                document.getElementById('days').innerText = Math.floor(diff / 86400000);
+                document.getElementById('hours').innerText = Math.floor((diff % 86400000) / 3600000);
+                document.getElementById('mins').innerText = Math.floor((diff % 3600000) / 60000);
             }, 1000);
         }
 
-        async function fetchWorkoutData() {
-            try {
-                const res = await fetch(GAS_URL);
-                globalWorkoutData = await res.json();
-                renderWorkoutFeed();
-            } catch (e) { document.getElementById('workout-feed').innerHTML = "Error sincronizando datos."; }
-        }
-
-        function renderDaySelector() {
+        function renderDays() {
             const container = document.getElementById('day-selector');
-            ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'].forEach(day => {
+            Object.keys(compSchedule).forEach(day => {
                 const btn = document.createElement('button');
-                btn.className = `day-btn ${day === currentSelectedDay ? 'active' : ''}`;
-                btn.innerText = day.substring(0,3);
-                btn.onclick = () => { currentSelectedDay = day; renderDaySelector(); renderWorkoutFeed(); };
+                btn.className = `day-btn ${day === currentDay ? 'active' : ''}`;
+                btn.innerText = day;
+                btn.onclick = () => { currentDay = day; renderDays(); renderFeed(); };
                 container.appendChild(btn);
             });
         }
 
-        function renderWorkoutFeed() {
+        function renderFeed() {
             const feed = document.getElementById('workout-feed');
             feed.innerHTML = '';
-            const dayData = globalWorkoutData.filter(r => String(r[0]).trim().toLowerCase() === currentSelectedDay.toLowerCase());
             
-            if (dayData.length === 0) { feed.innerHTML = "<div class='loading-state'>Sin programación o día de viaje.</div>"; return; }
+            const sessionCard = document.createElement('div');
+            sessionCard.className = 'session-card';
+            sessionCard.innerHTML = `<div class="session-title"><i class="fas fa-bolt"></i> Eventos del ${currentDay}</div>`;
 
-            const morning = dayData.filter(r => String(r[1]).toLowerCase().includes('mañana'));
-            const afternoon = dayData.filter(r => String(r[1]).toLowerCase().includes('tarde'));
-
-            if (morning.length > 0) feed.appendChild(createSection('Morning Flow', morning));
-            if (afternoon.length > 0) feed.appendChild(createSection('Competition Focus', afternoon));
-        }
-
-        function createSection(title, blocks) {
-            const card = document.createElement('div');
-            card.className = 'session-card';
-            card.innerHTML = `<div class="session-title">${title}</div>`;
-            blocks.forEach(r => {
+            compSchedule[currentDay].forEach(ev => {
                 const block = document.createElement('div');
                 block.className = 'movement-block';
+                const tagClass = ev.athlete === "LAU" ? "lau" : "";
                 block.innerHTML = `
-                    <div class="block-meta"><span>${r[3] || ''}</span> <span>${r[2] || ''}</span></div>
-                    <div class="movement-name">${r[4] || ''}</div>
-                    ${r[5] ? `<div class="movement-note"><strong>Nota:</strong> ${r[5]}</div>` : ''}
+                    <div class="block-meta"><span>${ev.phase}</span><span style="color:var(--text-muted)">${ev.time}</span></div>
+                    <span class="athlete-tag ${tagClass}">${ev.athlete}</span>
+                    <div class="comp-desc">${ev.desc}</div>
+                    <div class="comp-arena"><i class="fas fa-map-marker-alt"></i> ${ev.arena}</div>
                 `;
-                card.appendChild(block);
+                sessionCard.appendChild(block);
             });
-            return card;
+            feed.appendChild(sessionCard);
         }
 
-        window.onload = () => { initCountdown(); renderDaySelector(); fetchWorkoutData(); };
+        window.onload = initApp;
     </script>
 </body>
 </html>
