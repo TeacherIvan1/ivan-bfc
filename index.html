@@ -9,27 +9,19 @@
     
     <style>
         :root {
-            /* Paleta BFC Games (Turquesa oscuro, Naranja brillante, Blanco) */
             --bg-dark: #071a15;
             --bg-gradient: radial-gradient(circle at top right, #0d382b, #05100d);
             --bfc-orange: #ff3b00;
             --bfc-green-glow: #2cb67d;
             --text-main: #ffffff;
             --text-muted: #8da19b;
-            --card-bg: rgba(13, 35, 28, 0.6);
+            --card-bg: rgba(13, 35, 28, 0.8);
             --border-color: rgba(255, 59, 0, 0.3);
-            
             --font-title: 'Oswald', sans-serif;
             --font-body: 'Rajdhani', sans-serif;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body {
             font-family: var(--font-body);
             background: var(--bg-dark);
@@ -40,363 +32,50 @@
             flex-direction: column;
             align-items: center;
             padding: 20px 15px;
-            overflow-x: hidden;
         }
 
-        /* Textura de fondo sutil inspirada en el póster */
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10h80v80h-80z" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></svg>');
-            background-size: 30px 30px;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 450px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        /* HEADER & BRANDING */
-        header {
-            text-align: center;
-            margin-bottom: 5px;
-            position: relative;
-        }
-
-        .brand-subtitle {
-            font-size: 14px;
-            letter-spacing: 3px;
-            color: var(--bfc-green-glow);
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .main-title {
-            font-family: var(--font-title);
-            font-size: 48px;
-            color: var(--bfc-orange);
-            line-height: 1;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(255, 59, 0, 0.4);
-            margin-top: 5px;
-        }
-
-        /* COUNTDOWN SECTION */
-        .countdown-wrapper {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .countdown-wrapper::before {
-            content: ">> PERFORMANCE CAP: HIGH_OUTPUT";
-            position: absolute;
-            bottom: 5px;
-            right: 10px;
-            font-size: 8px;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-        }
-
-        .countdown-label {
-            font-size: 16px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .time-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .time-value {
-            font-family: var(--font-title);
-            font-size: 42px;
-            color: var(--text-main);
-            line-height: 1;
-        }
-
-        .time-text {
-            font-size: 12px;
-            color: var(--bfc-orange);
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        /* INJURY BANNER */
-        .injury-banner {
-            background: rgba(255, 59, 0, 0.1);
-            border-left: 4px solid var(--bfc-orange);
-            padding: 10px 15px;
-            font-size: 14px;
-            color: #ffbba6;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-radius: 4px;
-        }
-
-        /* NUTRITION ACCORDION */
-        details.nutrition-panel {
-            background: var(--card-bg);
-            border: 1px solid var(--bfc-green-glow);
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-
-        details.nutrition-panel summary {
-            font-family: var(--font-title);
-            font-size: 20px;
-            color: var(--text-main);
-            cursor: pointer;
-            list-style: none; /* Quitar flecha por defecto */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        details.nutrition-panel summary::-webkit-details-marker {
-            display: none;
-        }
+        .container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 20px; }
         
-        details.nutrition-panel summary .fa-chevron-down {
-            transition: transform 0.3s;
-            color: var(--bfc-green-glow);
-        }
+        header { text-align: center; margin-bottom: 5px; }
+        .brand-subtitle { font-size: 14px; letter-spacing: 3px; color: var(--bfc-green-glow); text-transform: uppercase; font-weight: 700; }
+        .main-title { font-family: var(--font-title); font-size: 42px; color: var(--bfc-orange); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 15px rgba(255, 59, 0, 0.4); }
 
-        details.nutrition-panel[open] summary .fa-chevron-down {
-            transform: rotate(180deg);
-        }
+        /* COUNTDOWN */
+        .countdown-wrapper { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .countdown-timer { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
+        .time-box { display: flex; flex-direction: column; align-items: center; }
+        .time-value { font-family: var(--font-title); font-size: 32px; color: var(--text-main); line-height: 1; }
+        .time-text { font-size: 10px; color: var(--bfc-orange); text-transform: uppercase; font-weight: 700; }
 
-        .nutrition-content {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 15px;
-        }
-
-        .nutri-phase-title {
-            color: var(--bfc-green-glow);
-            font-family: var(--font-title);
-            font-size: 18px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nutri-item {
-            margin-bottom: 10px;
-            padding-left: 12px;
-            border-left: 2px solid rgba(44, 182, 125, 0.4);
-        }
-
-        .nutri-item:last-child { margin-bottom: 0; }
+        /* PANELS */
+        details { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+        summary { font-family: var(--font-title); font-size: 18px; color: var(--bfc-orange); cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; list-style: none; }
+        summary::-webkit-details-marker { display: none; }
+        .panel-content { margin-top: 15px; font-size: 14px; line-height: 1.4; color: var(--text-muted); }
         
-        .nutri-name {
-            font-weight: 700;
-            color: var(--text-main);
-            font-size: 15px;
-        }
+        /* SCHEDULE CARDS */
+        .comp-day { border-left: 3px solid var(--bfc-green-glow); padding-left: 10px; margin-bottom: 15px; }
+        .comp-day h4 { color: var(--text-main); text-transform: uppercase; margin-bottom: 5px; font-size: 16px; }
+        .athlete-row { display: flex; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 5px 8px; border-radius: 4px; margin-bottom: 4px; }
+        .athlete-name { font-weight: 700; font-size: 12px; color: var(--bfc-green-glow); }
+        .event-time { color: var(--text-main); font-weight: 500; }
 
-        .nutri-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.4;
-            margin-top: 3px;
-        }
+        /* DIET & LOGISTICS */
+        .highlight-box { background: rgba(44, 182, 125, 0.1); border-left: 2px solid var(--bfc-green-glow); padding: 10px; margin-bottom: 10px; border-radius: 0 4px 4px 0; }
+        .highlight-title { color: var(--bfc-green-glow); font-weight: 700; margin-bottom: 3px; display: block; font-size: 13px; }
 
         /* DAY SELECTOR */
-        .day-selector-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-        .day-selector-wrapper::-webkit-scrollbar { display: none; }
-        
-        .day-selector {
-            display: flex;
-            gap: 10px;
-            min-width: max-content;
-            padding-bottom: 5px;
-        }
+        .day-selector { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
+        .day-selector::-webkit-scrollbar { display: none; }
+        .day-btn { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 6px 14px; border-radius: 15px; font-family: var(--font-title); font-size: 13px; text-transform: uppercase; cursor: pointer; }
+        .day-btn.active { background: var(--bfc-orange); color: white; border-color: var(--bfc-orange); box-shadow: 0 0 10px rgba(255, 59, 0, 0.4); }
 
-        .day-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-muted);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-family: var(--font-title);
-            font-size: 15px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+        .session-card { background: var(--card-bg); border-radius: 8px; padding: 15px; border-top: 3px solid var(--bfc-orange); margin-bottom: 20px; }
+        .movement-block { margin-bottom: 15px; padding-left: 10px; border-left: 2px solid rgba(255, 255, 255, 0.1); }
+        .movement-name { font-weight: 700; font-size: 16px; color: var(--text-main); }
+        .movement-note { font-size: 13px; color: #ffbba6; background: rgba(255, 59, 0, 0.05); padding: 8px; margin-top: 5px; border-radius: 4px; }
 
-        .day-btn.active {
-            background: var(--bfc-orange);
-            color: white;
-            border-color: var(--bfc-orange);
-            box-shadow: 0 0 15px rgba(255, 59, 0, 0.4);
-        }
-
-        /* WORKOUT FEED & CARDS */
-        .workout-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .session-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 18px;
-            border-top: 3px solid var(--bfc-orange);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .session-title {
-            font-family: var(--font-title);
-            font-size: 22px;
-            color: var(--bfc-orange);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            letter-spacing: 1px;
-        }
-
-        .movement-block {
-            margin-bottom: 20px;
-            padding-left: 14px;
-            border-left: 2px solid rgba(255, 255, 255, 0.15);
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .movement-block:last-child {
-            margin-bottom: 0;
-        }
-
-        .block-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            font-family: var(--font-title);
-            color: var(--bfc-green-glow);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .block-time {
-            color: var(--text-muted);
-            font-family: var(--font-body);
-        }
-
-        .movement-name {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--text-main);
-            line-height: 1.3;
-        }
-
-        /* ESTILOS PARA LA SECCIÓN DE NOTAS PRO */
-        .movement-note {
-            margin-top: 6px;
-            font-size: 14px;
-            color: #ffbba6;
-            background: rgba(255, 59, 0, 0.08);
-            padding: 10px 12px;
-            border-left: 2px solid var(--bfc-orange);
-            border-radius: 0 4px 4px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            line-height: 1.4;
-        }
-
-        .note-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .note-row i {
-            margin-top: 3px;
-            font-size: 12px;
-        }
-
-        /* Input de Resultados */
-        .result-container {
-            margin-top: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .result-input {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 10px 14px;
-            border-radius: 4px;
-            font-family: var(--font-body);
-            font-size: 15px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .result-input::placeholder { color: rgba(255,255,255,0.3); }
-        .result-input:focus { border-color: var(--bfc-orange); }
-
-        .loading-state, .error-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-            font-size: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .error-state { color: var(--bfc-orange); }
-        .fa-spinner { animation: spin 1s linear infinite; font-size: 24px; color: var(--bfc-green-glow); }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
+        .injury-banner { background: rgba(255, 59, 0, 0.1); border-left: 4px solid var(--bfc-orange); padding: 10px; font-size: 13px; color: #ffbba6; border-radius: 4px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -404,12 +83,12 @@
     <div class="container">
         
         <header>
-            <div class="brand-subtitle">Teacher Ivan - Lifestyle</div>
-            <h1 class="main-title">ADVANCED</h1>
+            <div class="brand-subtitle">Ivan & Lau</div>
+            <h1 class="main-title">BFC PREP</h1>
         </header>
 
         <div class="countdown-wrapper">
-            <span class="countdown-label">BFC Games 2026 Starts In</span>
+            <span class="time-text" style="letter-spacing: 2px;">BFC Games 2026 Starts In</span>
             <div class="countdown-timer" id="countdown">
                 <div class="time-box"><span class="time-value" id="days">00</span><span class="time-text">Días</span></div>
                 <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-text">Hrs</span></div>
@@ -418,291 +97,139 @@
         </div>
 
         <div class="injury-banner">
-            <i class="fas fa-triangle-exclamation"></i>
-            <span><strong>Protocolo Recuperación:</strong> Calleras prohibidas esta semana. Cero fricción en barra para regenerar la piel.</span>
+            <i class="fas fa-exclamation-triangle"></i> <strong>Aviso:</strong> Isométricos suaves hoy. Ahorrar energía para el viernes/sábado.
         </div>
 
-        <details class="nutrition-panel">
-            <summary>
-                <span><i class="fas fa-utensils"></i> Protocolo Nutricional: Peak Week</span>
-                <i class="fas fa-chevron-down"></i>
-            </summary>
-            
-            <div class="nutrition-content">
-                <div>
-                    <div class="nutri-phase-title"><i class="fas fa-battery-half"></i> Fase 1: Descarga y Mantenimiento (Lunes 11 a Miércoles 13)</div>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">El volumen de entrenamiento baja, así que mantenemos las calorías a raya pero aseguramos nutrientes antiinflamatorios.</p>
-                    
-                    <div class="nutri-item">
-                        <div class="nutri-name">Desayuno</div>
-                        <div class="nutri-desc">Pancakes salados (coronados con queso) o crepes de jamón y queso. Acompáñalos con tu café negro habitual para arrancar antes de ir al colegio.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Media Mañana (Snack en el recreo)</div>
-                        <div class="nutri-desc">Un bowl de avena cocida con un toque de miel y canela (excelente para la sensibilidad a la insulina).</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Almuerzo</div>
-                        <div class="nutri-desc">200g de pechuga de pollo a la plancha, 1 taza de arroz blanco (fácil digestión) y media palta. La palta nos dará esa grasa saludable crucial para mantener a raya la inflamación de la rodilla.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Cena</div>
-                        <div class="nutri-desc">3 o 4 huevos revueltos con una porción de queso de cabra y vegetales de hoja verde cocidos (espinaca o acelga). El queso de cabra se digiere mucho más rápido que el de vaca y es perfecto para la noche.</div>
-                    </div>
+        <details>
+            <summary><span><i class="fas fa-stopwatch"></i> Horarios de Arena</span><i class="fas fa-chevron-down"></i></summary>
+            <div class="panel-content">
+                <div class="comp-day">
+                    <h4>Viernes 15 (Viernes)</h4>
+                    <div class="athlete-row"><span class="athlete-name">LAU (Dupla Mix)</span><span class="event-time">17:20 - 18:40 (Atlestar)</span></div>
+                    <div class="athlete-row"><span class="athlete-name">IVAN (Advanced)</span><span class="event-time">DESCANSO / COACH</span></div>
                 </div>
-
-                <div>
-                    <div class="nutri-phase-title"><i class="fas fa-battery-full"></i> Fase 2: Carga de Carbohidratos y Viaje (Jueves 14 y Viernes 15)</div>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">Aquí empezamos a llenar el tanque. Reducimos las grasas (retrasan la digestión) y subimos los carbohidratos.</p>
-                    
-                    <div class="nutri-item">
-                        <div class="nutri-name">Desayuno</div>
-                        <div class="nutri-desc">Aumentamos la porción de avena al doble. Puedes sumar unos huevos cocidos (solo las claras para evitar la grasa de la yema) y tu café.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Almuerzo</div>
-                        <div class="nutri-desc">Pescado blanco o pollo (sin aceite), 2 tazas de arroz blanco o papa hervida, sin palta hoy.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Cena (Viernes en Santa Cruz)</div>
-                        <div class="nutri-desc">Un buen plato de pasta con salsa de tomate natural y algo de carne magra. Cero salsas pesadas, cremas o lácteos la noche antes de salir a la arena.</div>
-                    </div>
+                <div class="comp-day">
+                    <h4>Sábado 16 (Día Pro)</h4>
+                    <div class="athlete-row"><span class="athlete-name">IVAN - W1</span><span class="event-time">08:00 (Atlestar)</span></div>
+                    <div class="athlete-row"><span class="athlete-name">LAU - W2</span><span class="event-time">09:20 (JAC)</span></div>
+                    <div class="athlete-row"><span class="athlete-name">IVAN - W2</span><span class="event-time">12:16 (JAC)</span></div>
+                    <div class="athlete-row"><span class="athlete-name">LAU - W3</span><span class="event-time">14:08 (Atlestar)</span></div>
+                    <div class="athlete-row"><span class="athlete-name">IVAN - W3</span><span class="event-time">17:04 (Atlestar)</span></div>
                 </div>
-
-                <div>
-                    <div class="nutri-phase-title"><i class="fas fa-fire"></i> Fase 3: La Guerra (Sábado 16 y Domingo 17)</div>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">En competencia, la digestión se paraliza por la adrenalina. Todo debe ser líquido o de absorción instantánea.</p>
-                    
-                    <div class="nutri-item">
-                        <div class="nutri-name">Desayuno (2-3 horas antes)</div>
-                        <div class="nutri-desc">Crepes ligeros con mermelada y café. Necesitas que el estómago esté vacío cuando suene el reloj.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Entre WODs (La ventana de oro)</div>
-                        <div class="nutri-desc">Olvídate de comidas sólidas pesadas. Necesitas carbohidratos intra-entreno líquidos, gomitas, un plátano muy maduro o compota de manzana.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Almuerzo (Solo si >3 hrs entre eventos)</div>
-                        <div class="nutri-desc">Arroz blanco solo con una pechuga de pollo muy limpia.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Cena del Sábado</div>
-                        <div class="nutri-desc">Recuperación total. Arroz, pollo o pescado, y reincorporamos un poco de palta. A dormir temprano.</div>
-                    </div>
+                <div class="comp-day">
+                    <h4>Domingo 17 (Finales)</h4>
+                    <div class="athlete-row"><span class="athlete-name">IVAN - W4</span><span class="event-time">08:00 (JAC)</span></div>
+                    <div class="athlete-row"><span class="athlete-name">IVAN - W5</span><span class="event-time">11:45 (Atlestar)</span></div>
+                    <div class="athlete-row"><span class="athlete-name">LAU - W4</span><span class="event-time">13:45 (JAC)</span></div>
                 </div>
-
-                <div>
-                    <div class="nutri-phase-title" style="color: var(--bfc-orange);"><i class="fas fa-trophy"></i> Domingo por la Noche: Celebración</div>
-                    <div class="nutri-item" style="border-left-color: var(--bfc-orange);">
-                        <div class="nutri-desc">Termina el último WOD, cruzas la línea de meta y el protocolo estricto se apaga. Es el momento de recuperar la mente y celebrar el trabajo duro de todos estos meses. Para esta noche, una pizza hawaiana, una hamburguesa doble (como las de Big Burgers) o un buen plato de charquekan son la recompensa perfecta para disfrutar junto a Lau ❤️. El cuerpo absorberá esas calorías como una esponja después del desgaste masivo del fin de semana.</div>
-                    </div>
-                </div>
-
-                <div style="background: rgba(44, 182, 125, 0.1); border-left: 3px solid var(--bfc-green-glow); padding: 12px; border-radius: 4px; margin-top: 10px;">
-                    <span style="color: #a3ffdc; font-size: 14px;"><strong><i class="fas fa-tint" style="color: var(--bfc-green-glow);"></i> Regla de oro como tu Coach:</strong> Bebe entre 3 y 4 litros de agua diarios a partir de hoy, y añade un poco de sal extra a tus comidas desde el miércoles para asegurar que tus músculos retengan agua y no sufras calambres por el calor y la humedad de Santa Cruz. ¡A ganar!</span>
-                </div>
-
             </div>
         </details>
 
-        <div class="day-selector-wrapper">
-            <div class="day-selector" id="day-selector">
+        <details>
+            <summary><span><i class="fas fa-utensils"></i> Dieta Peak Week</span><i class="fas fa-chevron-down"></i></summary>
+            <div class="panel-content">
+                <div class="highlight-box">
+                    <span class="highlight-title">LUN - MIE (Mantenimiento)</span>
+                    Desayuno: Pancakes salados/queso + Café.<br>Almuerzo: 200g Pollo + 1 taza Arroz + 1/2 Palta.<br>Cena: 4 Huevos + Queso Cabra + Espinaca.
                 </div>
-        </div>
-
-        <div class="workout-section" id="workout-feed">
-            <div class="loading-state">
-                <i class="fas fa-spinner"></i>
-                <span>Sincronizando WOD Data...</span>
+                <div class="highlight-box">
+                    <span class="highlight-title">JUE - VIE (Carga Carbos)</span>
+                    Sube la Avena al doble. Reduce grasas (sin palta). Cena Vie: Pasta salsa tomate + Pollo (Santa Cruz).
+                </div>
+                <div class="highlight-box" style="border-color: var(--bfc-orange);">
+                    <span class="highlight-title" style="color: var(--bfc-orange);">SAB - DOM (Arena)</span>
+                    Desayuno: Crepes + Mermelada + Café.<br>Intra-WOD: Gomitas, Plátano maduro, Compotas.<br>Cena Sab: Recuperación con Arroz/Pollo/Palta.
+                </div>
             </div>
-        </div>
+        </details>
+
+        <details>
+            <summary><span><i class="fas fa-map-marked-alt"></i> Logística & Presupuesto</span><i class="fas fa-chevron-down"></i></summary>
+            <div class="panel-content">
+                <p><strong>Airbnb:</strong> Av. Beni y 4to Anillo. Cercano a Fidalga Beni (Market base).</p>
+                <p><strong>Traslados:</strong> VVI ➔ Sonilum ➔ Airbnb (Jueves 19:00). Uso de G77 recomendado.</p>
+                <div class="highlight-box" style="margin-top:10px;">
+                    <span class="highlight-title">Presupuesto Estimado (BOB)</span>
+                    Transporte: 360 | Super: 350 | Comidas: 600 | Extras: 200.<br>
+                    <strong>Total Sugerido: 1,500 BOB</strong>
+                </div>
+            </div>
+        </details>
+
+        <div class="day-selector" id="day-selector"></div>
+        <div id="workout-feed"><div class="loading-state"><i class="fas fa-spinner fa-spin"></i> Cargando programación...</div></div>
 
     </div>
 
     <script>
-        // URL DE TU GOOGLE APPS SCRIPT
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbzJW7QFzW2BEJOPPgBtNTQZmoLpKheJ9MpDJniCpADrl3vVzVEQHoNmVAEZnvtK3Mm3/exec';
-
-        // 1. LÓGICA DEL COUNTDOWN (Objetivo: 16 Mayo 2026)
-        function initCountdown() {
-            const targetDate = new Date('May 16, 2026 00:00:00').getTime();
-
-            const updateTimer = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) {
-                    clearInterval(updateTimer);
-                    document.getElementById('countdown').innerHTML = '<span class="time-value" style="color: var(--bfc-green-glow)">¡IT\'S GAME DAY!</span>';
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-                document.getElementById('mins').innerText = mins < 10 ? '0' + mins : mins;
-            }, 1000);
-        }
-
-        // 2. LÓGICA DE DATOS Y RENDERIZADO
         let globalWorkoutData = [];
         const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-        let currentSelectedDay = daysOfWeek[new Date().getDay()]; // Día actual por defecto
+        let currentSelectedDay = daysOfWeek[new Date().getDay()];
 
-        function initApp() {
-            initCountdown();
-            renderDaySelector();
-            fetchWorkoutData();
-        }
-
-        function renderDaySelector() {
-            const selectorContainer = document.getElementById('day-selector');
-            selectorContainer.innerHTML = '';
-
-            const orderedDays = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-
-            orderedDays.forEach(day => {
-                const btn = document.createElement('button');
-                btn.className = `day-btn ${day === currentSelectedDay ? 'active' : ''}`;
-                btn.innerText = day.substring(0, 3); // LUN, MAR, MIE...
-                btn.onclick = () => {
-                    currentSelectedDay = day;
-                    updateActiveDayBtn();
-                    renderWorkoutFeed();
-                };
-                selectorContainer.appendChild(btn);
-            });
-            
-            // Auto-scroll al día seleccionado
-            const activeBtn = document.querySelector('.day-btn.active');
-            if(activeBtn) {
-                activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
-        }
-
-        function updateActiveDayBtn() {
-            document.querySelectorAll('.day-btn').forEach(btn => {
-                if (btn.innerText === currentSelectedDay.substring(0, 3).toUpperCase()) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+        function initCountdown() {
+            const targetDate = new Date('May 16, 2026 00:00:00').getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const dist = targetDate - now;
+                if (dist < 0) return;
+                document.getElementById('days').innerText = Math.floor(dist / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('mins').innerText = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+            }, 1000);
         }
 
         async function fetchWorkoutData() {
             try {
-                const response = await fetch(GAS_URL);
-                if (!response.ok) throw new Error('Error de conexión');
-                globalWorkoutData = await response.json();
+                const res = await fetch(GAS_URL);
+                globalWorkoutData = await res.json();
                 renderWorkoutFeed();
-            } catch (error) {
-                console.error(error);
-                document.getElementById('workout-feed').innerHTML = `
-                    <div class="error-state">
-                        <i class="fas fa-exclamation-triangle" style="font-size:30px;"></i>
-                        <span>No se pudo sincronizar la programación. Revisa el enlace de Apps Script.</span>
-                    </div>`;
-            }
+            } catch (e) { document.getElementById('workout-feed').innerHTML = "Error sincronizando datos."; }
+        }
+
+        function renderDaySelector() {
+            const container = document.getElementById('day-selector');
+            ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'].forEach(day => {
+                const btn = document.createElement('button');
+                btn.className = `day-btn ${day === currentSelectedDay ? 'active' : ''}`;
+                btn.innerText = day.substring(0,3);
+                btn.onclick = () => { currentSelectedDay = day; renderDaySelector(); renderWorkoutFeed(); };
+                container.appendChild(btn);
+            });
         }
 
         function renderWorkoutFeed() {
             const feed = document.getElementById('workout-feed');
-            feed.innerHTML = ''; 
-
-            const dayData = globalWorkoutData.filter(row => {
-                const sheetDay = row[0] ? String(row[0]).trim().toLowerCase() : '';
-                return sheetDay === currentSelectedDay.toLowerCase();
-            });
-
-            if (dayData.length === 0) {
-                feed.innerHTML = `
-                    <div class="loading-state">
-                        <i class="fas fa-bed" style="font-size: 32px; color: var(--text-muted); margin-bottom:10px;"></i>
-                        <span>Día de descanso activo o sin programación.</span>
-                    </div>`;
-                return;
-            }
-
-            const morningBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('mañana'));
-            const afternoonBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('tarde'));
-
-            if (morningBlocks.length > 0) feed.appendChild(createSessionDOM('Early Session', 'fas fa-sun', morningBlocks));
-            if (afternoonBlocks.length > 0) feed.appendChild(createSessionDOM('Performance Box', 'fas fa-bolt', afternoonBlocks));
-        }
-
-        function createSessionDOM(title, iconClass, blocks) {
-            const sessionCard = document.createElement('div');
-            sessionCard.className = 'session-card';
+            feed.innerHTML = '';
+            const dayData = globalWorkoutData.filter(r => String(r[0]).trim().toLowerCase() === currentSelectedDay.toLowerCase());
             
-            const header = document.createElement('div');
-            header.className = 'session-title';
-            header.innerHTML = `<i class="${iconClass}"></i> ${title}`;
-            sessionCard.appendChild(header);
+            if (dayData.length === 0) { feed.innerHTML = "<div class='loading-state'>Sin programación o día de viaje.</div>"; return; }
 
-            blocks.forEach(row => {
-                // 0:Día, 1:Sesión, 2:Horario, 3:Fase, 4:Descripción, 5:Notas, 6:Logica, 7:Resultados
-                const horario = row[2] || '--:--';
-                const fase = row[3] || 'Bloque';
-                const descripcion = row[4] || '';
-                const notas = row[5] || '';
-                const logica = row[6] || '';
-                const requiereResultado = row[7] ? row[7].trim() !== '' : false;
-                const placeholderResultado = row[7] || 'Escribe tu resultado aquí...';
+            const morning = dayData.filter(r => String(r[1]).toLowerCase().includes('mañana'));
+            const afternoon = dayData.filter(r => String(r[1]).toLowerCase().includes('tarde'));
 
-                const blockContainer = document.createElement('div');
-                blockContainer.className = 'movement-block';
-
-                let proDetailsHTML = '';
-                if (notas || logica) {
-                    proDetailsHTML = `<div class="movement-note">`;
-                    if (notas) {
-                        proDetailsHTML += `
-                            <div class="note-row">
-                                <i class="fas fa-microscope" style="color: var(--bfc-orange);"></i>
-                                <span><strong style="color:var(--text-main)">Biomecánica:</strong> ${notas}</span>
-                            </div>`;
-                    }
-                    if (logica) {
-                        proDetailsHTML += `
-                            <div class="note-row">
-                                <i class="fas fa-bullseye" style="color: var(--bfc-green-glow);"></i>
-                                <span><strong style="color:var(--text-main)">Objetivo:</strong> ${logica}</span>
-                            </div>`;
-                    }
-                    proDetailsHTML += `</div>`;
-                }
-
-                let resultHTML = '';
-                if (requiereResultado) {
-                    resultHTML = `
-                        <div class="result-container">
-                            <input type="text" class="result-input" placeholder="${placeholderResultado}">
-                        </div>`;
-                }
-
-                blockContainer.innerHTML = `
-                    <div class="block-meta">
-                        <span>${fase}</span>
-                        <span class="block-time"><i class="far fa-clock"></i> ${horario}</span>
-                    </div>
-                    <div class="movement-name">${descripcion}</div>
-                    ${proDetailsHTML}
-                    ${resultHTML}
-                `;
-
-                sessionCard.appendChild(blockContainer);
-            });
-
-            return sessionCard;
+            if (morning.length > 0) feed.appendChild(createSection('Morning Flow', morning));
+            if (afternoon.length > 0) feed.appendChild(createSection('Competition Focus', afternoon));
         }
 
-        // Arrancar la app al cargar
-        window.onload = initApp;
+        function createSection(title, blocks) {
+            const card = document.createElement('div');
+            card.className = 'session-card';
+            card.innerHTML = `<div class="session-title">${title}</div>`;
+            blocks.forEach(r => {
+                const block = document.createElement('div');
+                block.className = 'movement-block';
+                block.innerHTML = `
+                    <div class="block-meta"><span>${r[3] || ''}</span> <span>${r[2] || ''}</span></div>
+                    <div class="movement-name">${r[4] || ''}</div>
+                    ${r[5] ? `<div class="movement-note"><strong>Nota:</strong> ${r[5]}</div>` : ''}
+                `;
+                card.appendChild(block);
+            });
+            return card;
+        }
 
+        window.onload = () => { initCountdown(); renderDaySelector(); fetchWorkoutData(); };
     </script>
 </body>
 </html>
