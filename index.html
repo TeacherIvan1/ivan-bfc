@@ -32,72 +32,59 @@
             flex-direction: column;
             align-items: center;
             padding: 20px 15px;
-            overflow-x: hidden;
         }
 
         .container { width: 100%; max-width: 450px; display: flex; flex-direction: column; gap: 20px; }
 
-        header { text-align: center; margin-bottom: 5px; }
-        .brand-subtitle { font-size: 14px; letter-spacing: 3px; color: var(--bfc-green-glow); text-transform: uppercase; font-weight: 700; }
-        .main-title { font-family: var(--font-title); font-size: 44px; color: var(--bfc-orange); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 15px rgba(255, 59, 0, 0.4); }
-
-        /* SECCIONES DESPLEGABLES */
-        details { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; margin-bottom: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-        summary { font-family: var(--font-title); font-size: 18px; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 1px; }
-        summary::-webkit-details-marker { display: none; }
-        summary i.fa-chevron-down { transition: transform 0.3s; color: var(--bfc-green-glow); }
-        details[open] summary i.fa-chevron-down { transform: rotate(180deg); }
-
-        .content-inner { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 15px; }
-
-        /* CRONOGRAMA */
-        .schedule-day { border-bottom: 1px dashed rgba(44, 182, 125, 0.3); padding-bottom: 10px; margin-bottom: 10px; }
-        .schedule-day:last-child { border: none; }
-        .day-title { color: var(--bfc-green-glow); font-family: var(--font-title); font-size: 16px; margin-bottom: 8px; }
-        .entry { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px; }
-        .entry .time { color: var(--bfc-orange); font-weight: 700; width: 60px; }
-        .entry .info { flex: 1; color: var(--text-main); }
-        .entry .arena { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
-
-        /* DIETA & LOGÍSTICA */
-        .nutri-phase { margin-bottom: 12px; }
-        .phase-name { font-weight: 700; color: var(--bfc-green-glow); font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
-        .nutri-detail { font-size: 13px; color: var(--text-muted); line-height: 1.4; padding-left: 10px; border-left: 1px solid var(--bfc-orange); }
-
-        /* PRESUPUESTO */
-        .budget-row { display: flex; justify-content: space-between; font-size: 15px; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .budget-total { font-family: var(--font-title); color: var(--bfc-green-glow); font-size: 20px; text-align: right; margin-top: 10px; }
+        header { text-align: center; }
+        .main-title { font-family: var(--font-title); font-size: 40px; color: var(--bfc-orange); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 15px rgba(255, 59, 0, 0.4); }
 
         /* COUNTDOWN */
         .countdown-wrapper { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; text-align: center; }
         .countdown-timer { display: flex; justify-content: center; gap: 15px; margin-top: 5px; }
-        .time-box { display: flex; flex-direction: column; align-items: center; }
         .time-value { font-family: var(--font-title); font-size: 32px; color: var(--text-main); line-height: 1; }
         .time-text { font-size: 10px; color: var(--bfc-orange); text-transform: uppercase; font-weight: 700; }
 
-        /* WORKOUT SELECTOR & CARDS */
-        .day-selector { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
+        /* SECCIONES DESPLEGABLES */
+        details { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; margin-bottom: 5px; }
+        summary { font-family: var(--font-title); font-size: 18px; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; list-style: none; }
+        summary::-webkit-details-marker { display: none; }
+        .content-inner { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 12px; }
+
+        /* CRONOGRAMA */
+        .schedule-day { border-bottom: 1px dashed rgba(44, 182, 125, 0.3); padding-bottom: 10px; margin-bottom: 10px; }
+        .day-title { color: var(--bfc-green-glow); font-family: var(--font-title); font-size: 17px; margin-bottom: 8px; border-left: 3px solid var(--bfc-green-glow); padding-left: 8px; }
+        .entry { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px; }
+        .entry .time { color: var(--bfc-orange); font-weight: 700; width: 65px; }
+        .entry .info { flex: 1; color: var(--text-main); }
+        .entry .arena { font-size: 10px; color: var(--text-muted); text-transform: uppercase; display: block; }
+
+        /* NUTRICIÓN */
+        .nutri-item { background: rgba(0,0,0,0.2); padding: 10px; border-radius: 4px; border-left: 2px solid var(--bfc-green-glow); }
+        .nutri-name { font-weight: 700; color: var(--bfc-green-glow); font-size: 14px; margin-bottom: 4px; text-transform: uppercase; }
+        .nutri-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+        /* WOD SELECTOR */
+        .day-selector { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-bottom: 10px; }
         .day-selector::-webkit-scrollbar { display: none; }
-        .day-btn { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 8px 15px; border-radius: 20px; font-family: var(--font-title); cursor: pointer; text-transform: uppercase; min-width: 60px; }
-        .day-btn.active { background: var(--bfc-orange); color: white; border-color: var(--bfc-orange); box-shadow: 0 0 10px rgba(255,59,0,0.4); }
+        .day-btn { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 8px 15px; border-radius: 20px; font-family: var(--font-title); cursor: pointer; text-transform: uppercase; }
+        .day-btn.active { background: var(--bfc-orange); color: white; border-color: var(--bfc-orange); }
 
         .session-card { background: var(--card-bg); border-radius: 8px; padding: 15px; border-top: 3px solid var(--bfc-orange); margin-bottom: 15px; }
-        .movement-block { margin-bottom: 15px; padding-left: 10px; border-left: 2px solid rgba(255,255,255,0.1); }
-        .movement-name { font-weight: 700; font-size: 17px; color: var(--text-main); }
+        .movement-name { font-weight: 700; font-size: 17px; color: var(--text-main); margin-bottom: 4px; }
         .movement-note { font-size: 13px; color: #ffbba6; background: rgba(255,59,0,0.05); padding: 8px; border-radius: 4px; margin-top: 5px; }
-
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <div class="brand-subtitle">Teacher Ivan - Lifestyle</div>
+            <div style="font-size: 12px; letter-spacing: 3px; color: var(--bfc-green-glow); text-transform: uppercase;">Teacher Ivan - Lifestyle</div>
             <h1 class="main-title">ADVANCED</h1>
         </header>
 
         <div class="countdown-wrapper">
-            <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted);">BFC Games 2026 Starts In</span>
+            <span style="font-size: 13px; text-transform: uppercase; color: var(--text-muted);">BFC Games 2026 Starts In</span>
             <div class="countdown-timer" id="countdown">
                 <div class="time-box"><span class="time-value" id="days">00</span><span class="time-text">Días</span></div>
                 <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-text">Hrs</span></div>
@@ -105,66 +92,53 @@
             </div>
         </div>
 
-        <details>
-            <summary><span><i class="fas fa-calendar-alt"></i> Cronograma BFC 2026</span> <i class="fas fa-chevron-down"></i></summary>
+        <details open>
+            <summary><span><i class="fas fa-stopwatch"></i> Horarios de Competencia</span> <i class="fas fa-chevron-down"></i></summary>
             <div class="content-inner">
                 <div class="schedule-day">
                     <div class="day-title">Viernes 15 de Mayo</div>
-                    <div class="entry"><span class="time">17:20</span><span class="info">Lau: WOD 1 <span class="arena">Atlestar Arena</span></span></div>
+                    <div class="entry"><span class="time">09:00</span><span class="info">Acreditación & Briefing General <span class="arena">Sonilum Arena</span></span></div>
+                    <div class="entry"><span class="time">14:00</span><span class="info">Ivan: WOD 6 (Heat 1) <span class="arena">JAC Arena</span></span></div>
+                    <div class="entry"><span class="time">15:40</span><span class="info">Lau: WOD 1 (Heat 7) <span class="arena">Atlestar Arena</span></span></div>
                 </div>
                 <div class="schedule-day">
                     <div class="day-title">Sábado 16 de Mayo</div>
-                    <div class="entry"><span class="time">08:00</span><span class="info">Ivan: WOD 1 <span class="arena">Atlestar Arena</span></span></div>
-                    <div class="entry"><span class="time">09:20</span><span class="info">Lau: WOD 2 <span class="arena">JAC Arena</span></span></div>
-                    <div class="entry"><span class="time">12:16</span><span class="info">Ivan: WOD 2 <span class="arena">JAC Arena</span></span></div>
-                    <div class="entry"><span class="time">14:08</span><span class="info">Lau: WOD 3 <span class="arena">Atlestar Arena</span></span></div>
-                    <div class="entry"><span class="time">17:04</span><span class="info">Ivan: WOD 3 <span class="arena">Atlestar Arena</span></span></div>
+                    <div class="entry"><span class="time">08:16</span><span class="info">Ivan: WOD 1 (Heat 2) <span class="arena">Atlestar Arena</span></span></div>
+                    <div class="entry"><span class="time">10:40</span><span class="info">Lau: WOD 2 (Heat 11) <span class="arena">JAC Arena</span></span></div>
+                    <div class="entry"><span class="time">12:16</span><span class="info">Ivan: WOD 2 (Heat 17) <span class="arena">JAC Arena</span></span></div>
+                    <div class="entry"><span class="time">15:12</span><span class="info">Lau: WOD 3 (Heat 28) <span class="arena">Atlestar Arena</span></span></div>
+                    <div class="entry"><span class="time">17:20</span><span class="info">Ivan: WOD 3 (Heat 36) <span class="arena">Atlestar Arena</span></span></div>
                 </div>
                 <div class="schedule-day">
                     <div class="day-title">Domingo 17 de Mayo</div>
-                    <div class="entry"><span class="time">08:00</span><span class="info">Ivan: WOD 4 <span class="arena">JAC Arena</span></span></div>
-                    <div class="entry"><span class="time">11:45</span><span class="info">Ivan: WOD 5 Final <span class="arena">Atlestar Arena</span></span></div>
-                    <div class="entry"><span class="time">13:45</span><span class="info">Lau: WOD 4 <span class="arena">JAC Arena</span></span></div>
+                    <div class="entry"><span class="time">08:00</span><span class="info">Ivan: WOD 4 (Heat 1) <span class="arena">JAC Arena</span></span></div>
+                    <div class="entry"><span class="time">11:45</span><span class="info">Ivan: WOD 5 Final (Heat 16) <span class="arena">Atlestar Arena</span></span></div>
+                    <div class="entry"><span class="time">13:45</span><span class="info">Lau: WOD 4 (Heat 24) <span class="arena">JAC Arena</span></span></div>
                 </div>
             </div>
         </details>
 
         <details>
-            <summary><span><i class="fas fa-utensils"></i> Dieta & Logística</span> <i class="fas fa-chevron-down"></i></summary>
+            <summary><span><i class="fas fa-utensils"></i> Protocolo Crema de Arroz</span> <i class="fas fa-chevron-down"></i></summary>
             <div class="content-inner">
-                <div class="nutri-phase">
-                    <div class="phase-name">Airbnb & Acreditación</div>
-                    <div class="nutri-detail">Av. Beni y 4to Anillo. Acreditación Jueves 19:15 en Sonilum Arena (vía G77).</div>
+                <div class="nutri-item">
+                    <div class="nutri-name">Carga Matutina (06:00 AM)</div>
+                    <div class="nutri-desc">60g de Crema de Arroz Proteica + 200ml agua/leche almendras. Energía de absorción rápida para el primer WOD.</div>
                 </div>
-                <div class="nutri-phase">
-                    <div class="phase-name">Almuerzo de Competencia (Sáb/Dom)</div>
-                    <div class="nutri-detail">Llevar Tuppers: Arroz blanco con pechuga de pollo magra. Gomitas y plátanos maduros para intra-WOD.</div>
+                <div class="nutri-item">
+                    <div class="nutri-name">Intra-WOD / Post-Heat</div>
+                    <div class="nutri-desc">30g de Crema de Arroz Proteica inmediatamente después de cada evento. Mantiene el glucógeno alto sin pesadez estomacal.</div>
                 </div>
-                <div class="nutri-phase">
-                    <div class="phase-name">Celebración Final</div>
-                    <div class="nutri-detail">Domingo Noche: Pizza Hawaiana o Big Burgers. ¡Misión cumplida!</div>
+                <div class="nutri-item">
+                    <div class="nutri-name">Suplementación Base</div>
+                    <div class="nutri-desc">Mantener hidratación con sales minerales (1.5L extra por el calor de SCZ).</div>
                 </div>
-            </div>
-        </details>
-
-        <details>
-            <summary><span><i class="fas fa-wallet"></i> Presupuesto Estimado</span> <i class="fas fa-chevron-down"></i></summary>
-            <div class="content-inner">
-                <div class="budget-row"><span>Transporte (Uber/inDrive)</span> <span>360 BOB</span></div>
-                <div class="budget-row"><span>Supermercado (Fidalga)</span> <span>350 BOB</span></div>
-                <div class="budget-row"><span>Restaurantes & Delivery</span> <span>600 BOB</span></div>
-                <div class="budget-row"><span>Imprevistos/Suplementos</span> <span>200 BOB</span></div>
-                <div class="budget-total">Total: ~1,500 BOB</div>
             </div>
         </details>
 
         <div class="day-selector" id="day-selector"></div>
 
-        <div id="workout-feed">
-            <div class="loading-state" style="text-align:center; padding:20px; color:var(--text-muted);">
-                <i class="fas fa-spinner fa-spin"></i> Cargando programación...
-            </div>
-        </div>
+        <div id="workout-feed"></div>
 
     </div>
 
@@ -213,7 +187,7 @@
                 globalWorkoutData = await res.json();
                 renderWorkoutFeed();
             } catch (e) {
-                document.getElementById('workout-feed').innerHTML = '<div style="text-align:center; color:var(--bfc-orange)">Error de conexión.</div>';
+                console.error(e);
             }
         }
 
@@ -222,7 +196,7 @@
             const dayData = globalWorkoutData.filter(r => r[0] && r[0].trim().toLowerCase() === currentSelectedDay.toLowerCase());
             
             if (dayData.length === 0) {
-                feed.innerHTML = '<div style="text-align:center; padding:40px; color:var(--text-muted);"><i class="fas fa-bed fa-2x"></i><br>Descanso activo.</div>';
+                feed.innerHTML = '<div style="text-align:center; padding:20px; color:var(--text-muted);">Descanso activo.</div>';
                 return;
             }
 
@@ -233,13 +207,13 @@
                 if (blocks.length === 0) continue;
                 const card = document.createElement('div');
                 card.className = 'session-card';
-                card.innerHTML = `<div class="session-title"><i class="fas fa-${sName==='Mañana'?'sun':'bolt'}"></i> ${sName}</div>`;
+                card.innerHTML = `<div style="font-family:var(--font-title); color:var(--bfc-orange); font-size:20px; margin-bottom:10px;"><i class="fas fa-bolt"></i> SESIÓN ${sName.toUpperCase()}</div>`;
                 blocks.forEach(row => {
                     card.innerHTML += `
-                        <div class="movement-block">
-                            <div class="block-meta"><span>${row[3]||'WOD'}</span><span>${row[2]||''}</span></div>
+                        <div style="margin-bottom:15px; padding-left:10px; border-left:2px solid rgba(255,255,255,0.1);">
+                            <div style="font-size:12px; color:var(--bfc-green-glow); text-transform:uppercase;">${row[3]||''}</div>
                             <div class="movement-name">${row[4]||''}</div>
-                            ${row[5]?`<div class="movement-note"><strong>Bio:</strong> ${row[5]}</div>`:''}
+                            ${row[5]?`<div class="movement-note"><strong>BIO:</strong> ${row[5]}</div>`:''}
                         </div>`;
                 });
                 feed.appendChild(card);
