@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Teacher Ivan BFC Prep</title>
+    <title>Rodrigo | Bodybuilding Prep</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-dark: #071a15;
-            --bg-gradient: radial-gradient(circle at top right, #0d382b, #05100d);
-            --bfc-orange: #ff3b00;
-            --bfc-green-glow: #2cb67d;
+            /* Mantenemos una paleta agresiva y estética ideal para el rubro fitness */
+            --bg-dark: #0a0a0a;
+            --bg-gradient: radial-gradient(circle at top right, #1a1a1a, #050505);
+            --bfc-orange: #ffb800; /* Tono más dorado/trofeo */
+            --bfc-green-glow: #e0e0e0; /* Plata/Blanco brillante */
             --text-main: #ffffff;
             --text-muted: #8da19b;
-            --card-bg: rgba(13, 35, 28, 0.7);
-            --border-color: rgba(255, 59, 0, 0.3);
+            --card-bg: rgba(26, 26, 26, 0.8);
+            --border-color: rgba(255, 184, 0, 0.3);
             
             --font-title: 'Oswald', sans-serif;
             --font-body: 'Rajdhani', sans-serif;
@@ -81,7 +82,7 @@
             line-height: 1;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(255, 59, 0, 0.4);
+            text-shadow: 0 0 15px rgba(255, 184, 0, 0.4);
             margin-top: 5px;
         }
 
@@ -160,7 +161,7 @@
         
         details summary .fa-chevron-down {
             transition: transform 0.3s;
-            color: var(--bfc-green-glow);
+            color: var(--bfc-orange);
         }
 
         details[open] summary .fa-chevron-down {
@@ -176,9 +177,8 @@
             padding-top: 15px;
         }
 
-        /* ESTILOS DE CRONOGRAMA */
         .schedule-day {
-            border-bottom: 1px dashed rgba(44, 182, 125, 0.3);
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
             padding-bottom: 15px;
             margin-bottom: 10px;
         }
@@ -204,30 +204,22 @@
             justify-content: space-between;
             font-size: 15px;
             margin-bottom: 8px;
-            background: rgba(0,0,0,0.2);
-            padding: 8px;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
             border-radius: 4px;
         }
 
         .entry .time {
             color: var(--bfc-orange);
             font-weight: 700;
-            width: 55px;
+            width: auto;
+            margin-right: 15px;
             font-size: 16px;
         }
 
         .entry .info {
             flex: 1;
             color: var(--text-main);
-        }
-
-        .entry .arena {
-            font-size: 11px;
-            color: var(--bfc-green-glow);
-            text-transform: uppercase;
-            display: block;
-            margin-top: 2px;
-            font-weight: 700;
         }
 
         /* ESTILOS DE NUTRICIÓN */
@@ -244,7 +236,7 @@
         .nutri-item {
             margin-bottom: 10px;
             padding-left: 12px;
-            border-left: 2px solid rgba(44, 182, 125, 0.4);
+            border-left: 2px solid rgba(255, 184, 0, 0.4);
         }
         
         .nutri-name {
@@ -258,24 +250,6 @@
             color: var(--text-muted);
             line-height: 1.4;
             margin-top: 3px;
-        }
-
-        /* ESTILOS DE PRESUPUESTO */
-        .budget-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 15px;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .budget-total {
-            font-family: var(--font-title);
-            color: var(--bfc-orange);
-            font-size: 24px;
-            text-align: right;
-            margin-top: 15px;
-            letter-spacing: 1px;
         }
 
         /* DAY SELECTOR Y WOD FEED */
@@ -310,9 +284,10 @@
 
         .day-btn.active {
             background: var(--bfc-orange);
-            color: white;
+            color: var(--bg-dark);
             border-color: var(--bfc-orange);
-            box-shadow: 0 0 15px rgba(255, 59, 0, 0.4);
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(255, 184, 0, 0.4);
         }
 
         .workout-section {
@@ -363,11 +338,6 @@
             text-transform: uppercase;
         }
 
-        .block-time {
-            color: var(--text-muted);
-            font-family: var(--font-body);
-        }
-
         .movement-name {
             font-weight: 700;
             font-size: 18px;
@@ -378,8 +348,8 @@
         .movement-note {
             margin-top: 6px;
             font-size: 14px;
-            color: #ffbba6;
-            background: rgba(255, 59, 0, 0.08);
+            color: #d4d4d4;
+            background: rgba(255, 255, 255, 0.05);
             padding: 10px 12px;
             border-left: 2px solid var(--bfc-orange);
             border-radius: 0 4px 4px 0;
@@ -392,12 +362,12 @@
     <div class="container">
         
         <header>
-            <div class="brand-subtitle">Teacher Ivan - Lifestyle</div>
-            <h1 class="main-title">ADVANCED</h1>
+            <div class="brand-subtitle">Rodrigo | Road to Stage</div>
+            <h1 class="main-title">MENS PHYSIQUE</h1>
         </header>
 
         <div class="countdown-wrapper">
-            <span class="countdown-label">BFC Games 2026 Starts In</span>
+            <span class="countdown-label">Competición Oficial en:</span>
             <div class="countdown-timer" id="countdown">
                 <div class="time-box"><span class="time-value" id="days">00</span><span class="time-text">Días</span></div>
                 <div class="time-box"><span class="time-value" id="hours">00</span><span class="time-text">Hrs</span></div>
@@ -405,121 +375,75 @@
             </div>
         </div>
 
+        <details>
+            <summary>
+                <span><i class="fas fa-calendar-alt"></i> Planificación Mensual</span>
+                <i class="fas fa-chevron-down"></i>
+            </summary>
+            
+            <div class="content-inner">
+                <div class="schedule-day">
+                    <div class="day-title">Semanas 1 a 6 (Actual)</div>
+                    <div class="entry"><span class="time">Fase:</span><span class="info">Hipertrofia Base (Volumen Limpio)</span></div>
+                    <div class="entry"><span class="time">Cardio:</span><span class="info">20 min post-entreno (LISS)</span></div>
+                </div>
+
+                <div class="schedule-day">
+                    <div class="day-title">Semanas 7 a 12</div>
+                    <div class="entry"><span class="time">Fase:</span><span class="info">Transición a Definición (Déficit leve)</span></div>
+                    <div class="entry"><span class="time">Cardio:</span><span class="info">35 min post-entreno (LISS o Inclinación)</span></div>
+                </div>
+
+                <div class="schedule-day">
+                    <div class="day-title">Semanas 12 a 16</div>
+                    <div class="entry"><span class="time">Fase:</span><span class="info">Peaking y Secado Competición</span></div>
+                    <div class="entry"><span class="time">Cardio:</span><span class="info">45 min Ayunas + 20 min post-entreno</span></div>
+                </div>
+            </div>
+        </details>
+
         <details open>
             <summary>
-                <span><i class="fas fa-stopwatch"></i> Horarios BFC 2026</span>
-                <i class="fas fa-chevron-down"></i>
-            </summary>
-            
-            <div class="content-inner">
-                <div class="schedule-day">
-                    <div class="day-title">Viernes 15 de Mayo</div>
-                    <div class="entry"><span class="time">09:00</span><span class="info">Briefing General y Acreditación <span class="arena">Sonilum Arena</span></span></div>
-                    <div class="entry"><span class="time">14:00</span><span class="info">Ivan: WOD 6 (Heat 1) <span class="arena">JAC Arena</span></span></div>
-                    <div class="entry"><span class="time">17:49</span><span class="info">Lau (SayainFit Fusion): WOD 1 (Heat 17) <span class="arena">Atlestar Arena</span></span></div>
-                </div>
-
-                <div class="schedule-day">
-                    <div class="day-title">Sábado 16 de Mayo</div>
-                    <div class="entry"><span class="time">08:00</span><span class="info">Ivan: WOD 1 (Heat 1) <span class="arena">Atlestar Arena</span></span></div>
-                    <div class="entry"><span class="time">09:52</span><span class="info">Lau (SayainFit Fusion): WOD 2 (Heat 8) <span class="arena">JAC Arena</span></span></div>
-                    <div class="entry"><span class="time">12:16</span><span class="info">Ivan: WOD 2 (Heat 17) <span class="arena">JAC Arena</span></span></div>
-                    <div class="entry"><span class="time">14:40</span><span class="info">Lau (SayainFit Fusion): WOD 3 (Heat 26) <span class="arena">Atlestar Arena</span></span></div>
-                    <div class="entry"><span class="time">17:04</span><span class="info">Ivan: WOD 3 (Heat 35) <span class="arena">Atlestar Arena</span></span></div>
-                </div>
-
-                <div class="schedule-day">
-                    <div class="day-title">Domingo 17 de Mayo</div>
-                    <div class="entry"><span class="time">08:00</span><span class="info">Ivan: WOD 4 (Heat 1) <span class="arena">JAC Arena</span></span></div>
-                    <div class="entry"><span class="time">11:45</span><span class="info">Ivan: WOD 5 Final (Heat 16) <span class="arena">Atlestar Arena</span></span></div>
-                    <div class="entry"><span class="time">13:45</span><span class="info">Lau (SayainFit Fusion): WOD 4 (Heat 24) <span class="arena">JAC Arena</span></span></div>
-                </div>
-            </div>
-        </details>
-
-        <details>
-            <summary>
-                <span><i class="fas fa-utensils"></i> Protocolo Nutricional</span>
+                <span><i class="fas fa-utensils"></i> Dieta Económica / Macros</span>
                 <i class="fas fa-chevron-down"></i>
             </summary>
             
             <div class="content-inner">
                 <div>
-                    <div class="nutri-phase-title"><i class="fas fa-battery-half"></i> Descarga (Lun 11 a Mié 13)</div>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">Volumen bajo, calorías a raya y nutrientes antiinflamatorios.</p>
+                    <div class="nutri-phase-title"><i class="fas fa-egg"></i> Desayuno (Alto Valor Biológico)</div>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">Prioridad en proteínas baratas y digestibles.</p>
                     <div class="nutri-item">
-                        <div class="nutri-name">Desayuno y Almuerzo</div>
-                        <div class="nutri-desc">Desayuno: Pancakes salados o crepes. Almuerzo: 200g pechuga de pollo, 1 taza de arroz blanco, media palta.</div>
+                        <div class="nutri-name">Revuelto de Avena</div>
+                        <div class="nutri-desc">4 huevos enteros + 2 claras adicionales. 80g de avena en hojuelas cocida con canela y edulcorante. 1 taza de café negro.</div>
                     </div>
                 </div>
 
                 <div>
-                    <div class="nutri-phase-title"><i class="fas fa-battery-full"></i> Carga y Viaje (Jue 14 y Vie 15)</div>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">Reducimos las grasas y subimos los carbohidratos.</p>
+                    <div class="nutri-phase-title"><i class="fas fa-drumstick-bite"></i> Almuerzo (Combustible)</div>
                     <div class="nutri-item">
-                        <div class="nutri-name">Desayuno y Almuerzo</div>
-                        <div class="nutri-desc">Desayuno: Avena doble porción. Almuerzo: Pescado blanco/pollo, 2 tazas de arroz blanco. Cero palta.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Cena (Viernes SCZ)</div>
-                        <div class="nutri-desc">Pasta con salsa de tomate natural y carne magra. Cero salsas pesadas o lácteos.</div>
+                        <div class="nutri-name">Pollo / Legumbres</div>
+                        <div class="nutri-desc">200g de pechuga de pollo (o hígado/corazón de pollo como variante económica). 150g de arroz blanco o lentejas hervidas. 1 porción de vegetales de hoja verde oscuro.</div>
                     </div>
                 </div>
 
                 <div>
-                    <div class="nutri-phase-title"><i class="fas fa-fire"></i> La Guerra (Sáb 16 y Dom 17)</div>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic;">Energía de absorción rápida. Estómago ligero.</p>
+                    <div class="nutri-phase-title"><i class="fas fa-fish"></i> Cena (Recuperación)</div>
                     <div class="nutri-item">
-                        <div class="nutri-name">Desayuno (2 hrs antes del WOD)</div>
-                        <div class="nutri-desc">Crepes ligeros + <strong>60g de Crema de Arroz Proteica</strong>.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Intra-WOD / Entre Heats</div>
-                        <div class="nutri-desc"><strong>30g de Crema de Arroz Proteica</strong> inmediatamente post-WOD. Plátano maduro o gomitas. Cero sólidos pesados.</div>
-                    </div>
-                    <div class="nutri-item">
-                        <div class="nutri-name">Cena del Sábado</div>
-                        <div class="nutri-desc">Recuperación total. Arroz, pollo o pescado, y un poco de palta. A dormir temprano.</div>
+                        <div class="nutri-name">Proteína Magra</div>
+                        <div class="nutri-desc">1 lata de atún al agua o 200g de filete de pescado económico (tilapia/merluza). 2 papas medianas hervidas. Ensalada con vinagre y pizca de sal.</div>
                     </div>
                 </div>
 
                 <div>
-                    <div class="nutri-phase-title" style="color: var(--bfc-orange);"><i class="fas fa-trophy"></i> Domingo Noche: Celebración</div>
+                    <div class="nutri-phase-title" style="color: var(--bfc-orange);"><i class="fas fa-cookie-bite"></i> Snacks / Grasas Saludables</div>
                     <div class="nutri-item" style="border-left-color: var(--bfc-orange);">
-                        <div class="nutri-desc">Pizza Hawaiana o Big Burgers. El cuerpo absorberá esas calorías tras el desgaste masivo.</div>
+                        <div class="nutri-desc">30g de maní (cacahuate) natural tostado (sin sal añadida). 1 plátano como pre-entreno inmediato.</div>
                     </div>
                 </div>
 
-                <div style="background: rgba(44, 182, 125, 0.1); border-left: 3px solid var(--bfc-green-glow); padding: 12px; border-radius: 4px; margin-top: 10px;">
-                    <span style="color: #a3ffdc; font-size: 14px;"><strong><i class="fas fa-tint"></i> Regla de oro:</strong> Bebe 3-4 litros diarios y añade sal extra a tus comidas para retener agua frente a la humedad de SCZ.</span>
+                <div style="background: rgba(255, 184, 0, 0.1); border-left: 3px solid var(--bfc-orange); padding: 12px; border-radius: 4px; margin-top: 10px;">
+                    <span style="color: #ffe8a1; font-size: 14px;"><strong><i class="fas fa-tint"></i> Hidratación:</strong> Mínimo 4 litros de agua diarios. El músculo crece en un ambiente hidratado.</span>
                 </div>
-            </div>
-        </details>
-
-        <details>
-            <summary>
-                <span><i class="fas fa-wallet"></i> Presupuesto SCZ</span>
-                <i class="fas fa-chevron-down"></i>
-            </summary>
-            
-            <div class="content-inner">
-                <div class="budget-row">
-                    <span>Transporte (Uber/inDrive VVI/Sonilum/Airbnb)</span>
-                    <span>360 BOB</span>
-                </div>
-                <div class="budget-row">
-                    <span>Supermercado (Fidalga Beni)</span>
-                    <span>350 BOB</span>
-                </div>
-                <div class="budget-row">
-                    <span>Restaurantes (Delivery, Celebración, Camba)</span>
-                    <span>500 - 600 BOB</span>
-                </div>
-                <div class="budget-row">
-                    <span>Imprevistos / Suplementos extra</span>
-                    <span>200 BOB</span>
-                </div>
-                <div class="budget-total">Total: ~1,500 BOB</div>
             </div>
         </details>
 
@@ -529,21 +453,14 @@
         </div>
 
         <div class="workout-section" id="workout-feed">
-            <div style="text-align: center; padding: 40px; color: var(--text-muted);">
-                <i class="fas fa-spinner fa-spin" style="font-size: 24px; color: var(--bfc-green-glow); margin-bottom: 10px;"></i>
-                <p>Sincronizando WOD Data...</p>
             </div>
-        </div>
 
     </div>
 
     <script>
-        // URL DE TU GOOGLE APPS SCRIPT
-        const GAS_URL = 'https://script.google.com/macros/s/AKfycbzJW7QFzW2BEJOPPgBtNTQZmoLpKheJ9MpDJniCpADrl3vVzVEQHoNmVAEZnvtK3Mm3/exec';
-
-        // 1. LÓGICA DEL COUNTDOWN (16 Mayo 2026)
+        // 1. LÓGICA DEL COUNTDOWN (Ejemplo: 15 de Noviembre 2026)
         function initCountdown() {
-            const targetDate = new Date('May 16, 2026 00:00:00').getTime();
+            const targetDate = new Date('Nov 15, 2026 00:00:00').getTime();
 
             const updateTimer = setInterval(() => {
                 const now = new Date().getTime();
@@ -551,7 +468,7 @@
 
                 if (distance < 0) {
                     clearInterval(updateTimer);
-                    document.getElementById('countdown').innerHTML = '<span class="time-value" style="color: var(--bfc-green-glow)">¡IT\'S GAME DAY!</span>';
+                    document.getElementById('countdown').innerHTML = '<span class="time-value" style="color: var(--bfc-orange)">¡SHOW TIME!</span>';
                     return;
                 }
 
@@ -565,15 +482,24 @@
             }, 1000);
         }
 
-        // 2. LÓGICA DE DATOS Y RENDERIZADO
-        let globalWorkoutData = [];
-        const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-        let currentSelectedDay = daysOfWeek[new Date().getDay()]; 
+        // 2. BASE DE DATOS ESTÁTICA DE ENTRENAMIENTO (En lugar del Google Script)
+        // Formato: [Día, Título Bloque, Enfoque/Músculos, Ejercicios (Series x Reps), Notas de técnica]
+        const staticWorkoutData = [
+            ['Lunes', 'Empuje (Push)', 'Pecho, Hombros, Tríceps', '1. Press de Banca Plano: 4 x 8-10\n2. Press Inclinado con Mancuernas: 3 x 10-12\n3. Cruces en Polea Baja: 3 x 15\n4. Elevaciones Laterales: 4 x 15-20\n5. Extensión de Tríceps en Polea: 4 x 12', 'Controlar la fase excéntrica (bajada) en el Press de Banca por 3 segundos.'],
+            ['Martes', 'Tirón (Pull)', 'Espalda, Bíceps, Deltoide Posterior', '1. Dominadas o Jalón al Pecho: 4 x al fallo\n2. Remo con Barra: 4 x 8-10\n3. Remo en Máquina o Gironda: 3 x 12\n4. Face Pull (Hombro Posterior): 3 x 15\n5. Curl con Barra Z: 4 x 10', 'Apretar las escápulas un segundo en la máxima contracción de cada remo.'],
+            ['Miércoles', 'Piernas (Legs)', 'Cuádriceps, Isquios, Pantorrillas', '1. Sentadilla Libre o en Multipower: 4 x 8\n2. Prensa Inclinada: 4 x 10-12\n3. Extensiones de Cuádriceps: 3 x 15\n4. Peso Muerto Rumano con Mancuernas: 4 x 10\n5. Elevación de Talones de pie: 5 x 20', 'Priorizar el rango de movimiento profundo en la prensa y sentadilla.'],
+            ['Jueves', 'Descanso Activo', 'Cardio y Core', '1. Cardio LISS (Caminadora con inclinación): 40 minutos\n2. Crunches Abdominales: 4 x 20\n3. Elevación de piernas colgado: 4 x 15\n4. Planchas Isométricas: 3 x 1 minuto', 'Mantener una frecuencia cardíaca moderada (120-130 lpm).'],
+            ['Viernes', 'Torso Alto (Upper)', 'Hombro, Pecho Superior, Espalda', '1. Press Militar con Barra o Mancuernas: 4 x 8-10\n2. Press Inclinado en Máquina: 3 x 10-12\n3. Jalón con agarre neutro estrecho: 3 x 12\n4. Elevaciones Laterales c/ Cable: 4 x 15\n5. Curl Martillo: 3 x 12', 'Día enfocado en dar amplitud visual en forma de "V" al tren superior.'],
+            ['Sábado', 'Piernas Ligero', 'Glúteos e Isquiotibiales', '1. Hip Thrust con Barra: 4 x 10\n2. Curl de Isquios Tumbado: 4 x 12-15\n3. Zancadas (Lunges) caminando: 3 x 12 por pierna\n4. Extensiones de Cuádriceps a una pierna: 3 x 15\n5. Pantorrillas Sentado: 4 x 15', 'Enfocar la conexión mente-músculo en la cadena posterior.'],
+            ['Domingo', 'Recuperación Total', 'Descanso', 'Día sin pesas. Aprovechar para preparar las comidas (Meal Prep) de la semana.', 'Dormir mínimo 8 horas seguidas para maximizar la recuperación muscular.']
+        ];
+
+        let currentSelectedDay = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'][new Date().getDay()]; 
 
         function initApp() {
             initCountdown();
             renderDaySelector();
-            fetchWorkoutData();
+            renderWorkoutFeed();
         }
 
         function renderDaySelector() {
@@ -610,90 +536,58 @@
             });
         }
 
-        async function fetchWorkoutData() {
-            try {
-                const response = await fetch(GAS_URL);
-                if (!response.ok) throw new Error('Error de conexión');
-                globalWorkoutData = await response.json();
-                renderWorkoutFeed();
-            } catch (error) {
-                document.getElementById('workout-feed').innerHTML = `
-                    <div style="text-align: center; padding: 40px; color: var(--bfc-orange);">
-                        <i class="fas fa-exclamation-triangle" style="font-size:30px; margin-bottom:10px;"></i>
-                        <p>No se pudo sincronizar la programación.</p>
-                    </div>`;
-            }
-        }
-
         function renderWorkoutFeed() {
             const feed = document.getElementById('workout-feed');
             feed.innerHTML = ''; 
 
-            const dayData = globalWorkoutData.filter(row => {
-                const sheetDay = row[0] ? String(row[0]).trim().toLowerCase() : '';
-                return sheetDay === currentSelectedDay.toLowerCase();
-            });
+            const dayData = staticWorkoutData.find(row => row[0] === currentSelectedDay);
 
-            if (dayData.length === 0) {
-                feed.innerHTML = `
-                    <div style="text-align: center; padding: 40px; color: var(--text-muted);">
-                        <i class="fas fa-bed" style="font-size: 32px; margin-bottom:10px;"></i>
-                        <p>Día de descanso activo o sin programación.</p>
-                    </div>`;
-                return;
-            }
+            if (!dayData) return;
 
-            const morningBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('mañana'));
-            const afternoonBlocks = dayData.filter(r => r[1] && r[1].toLowerCase().includes('tarde'));
+            const [dia, titulo, enfoque, ejerciciosTexto, notas] = dayData;
 
-            if (morningBlocks.length > 0) feed.appendChild(createSessionDOM('Early Session', 'fas fa-sun', morningBlocks));
-            if (afternoonBlocks.length > 0) feed.appendChild(createSessionDOM('Performance Box', 'fas fa-bolt', afternoonBlocks));
-        }
-
-        function createSessionDOM(title, iconClass, blocks) {
             const sessionCard = document.createElement('div');
             sessionCard.className = 'session-card';
             
             const header = document.createElement('div');
             header.className = 'session-title';
-            header.innerHTML = `<i class="${iconClass}"></i> ${title}`;
+            
+            // Icono dependiendo de si es descanso o entreno
+            let icon = dia === 'Domingo' || dia === 'Jueves' ? 'fas fa-bed' : 'fas fa-dumbbell';
+            
+            header.innerHTML = `<i class="${icon}"></i> ${titulo}`;
             sessionCard.appendChild(header);
 
-            blocks.forEach(row => {
-                const horario = row[2] || '--:--';
-                const fase = row[3] || 'Bloque';
-                const descripcion = row[4] || '';
-                const notas = row[5] || '';
-                const logica = row[6] || '';
+            // Bloque de Enfoque Principal
+            const focusBlock = document.createElement('div');
+            focusBlock.className = 'movement-block';
+            focusBlock.innerHTML = `
+                <div class="block-meta">
+                    <span>Músculos a trabajar</span>
+                </div>
+                <div class="movement-name" style="color: var(--bfc-orange); margin-bottom: 10px;">${enfoque}</div>
+            `;
+            
+            // Convertir la cadena de texto de ejercicios en líneas HTML
+            const ejerciciosFormateados = ejerciciosTexto.split('\n').map(ej => `<div style="margin-bottom: 8px;">${ej}</div>`).join('');
 
-                const blockContainer = document.createElement('div');
-                blockContainer.className = 'movement-block';
+            focusBlock.innerHTML += `
+                <div style="font-size: 16px; line-height: 1.5; color: var(--text-main);">
+                    ${ejerciciosFormateados}
+                </div>
+            `;
 
-                let proDetailsHTML = '';
-                if (notas || logica) {
-                    proDetailsHTML = `<div class="movement-note">`;
-                    if (notas) {
-                        proDetailsHTML += `<div><strong style="color:var(--text-main)"><i class="fas fa-microscope" style="color:var(--bfc-orange); font-size:12px;"></i> Bio:</strong> ${notas}</div>`;
-                    }
-                    if (logica) {
-                        proDetailsHTML += `<div style="margin-top:4px;"><strong style="color:var(--text-main)"><i class="fas fa-bullseye" style="color:var(--bfc-green-glow); font-size:12px;"></i> Obj:</strong> ${logica}</div>`;
-                    }
-                    proDetailsHTML += `</div>`;
-                }
-
-                blockContainer.innerHTML = `
-                    <div class="block-meta">
-                        <span>${fase}</span>
-                        <span class="block-time"><i class="far fa-clock"></i> ${horario}</span>
+            // Agregar Notas / Técnica si existen
+            if (notas) {
+                focusBlock.innerHTML += `
+                    <div class="movement-note">
+                        <strong style="color:var(--text-main)"><i class="fas fa-microscope" style="color:var(--bfc-orange); font-size:12px;"></i> TIP DEL COACH:</strong> <br>${notas}
                     </div>
-                    <div class="movement-name">${descripcion}</div>
-                    ${proDetailsHTML}
                 `;
+            }
 
-                sessionCard.appendChild(blockContainer);
-            });
-
-            return sessionCard;
+            sessionCard.appendChild(focusBlock);
+            feed.appendChild(sessionCard);
         }
 
         window.onload = initApp;
